@@ -478,9 +478,9 @@ Point x =(1,3);// khởi tạo phân vùng nhớ
 
 
 <details>
-<summary><h4>MEMORY ALLOCATION</h4></summary>
+<summary><h4>MEMORY LAYOUT</h4></summary>
 
-**Sơ đồ phân vừng nhớ trên RAM Memmory:**
+**Sơ đồ phân vùng nhớ trên RAM Memory:**
 
 
 |          Stack          |
