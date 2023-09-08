@@ -1,10 +1,8 @@
- <details><summary><h3> C PROGRAMMING LANGUAGE </h3></summary>
+<details><summary><h3> C PROGRAMMING LANGUAGE </h3></summary>
  
 <!-- ----------------------------------C Bassic-------------------------------------------- -->
 
-
-<details>
-  <summary><h4>C BASIC </h4></summary>
+<details><summary><h4>C BASIC </h4></summary>
 
 #### 1. Type Data and Libraries:
 
