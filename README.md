@@ -1679,7 +1679,7 @@ tao ra "file .o" chung
 
 <details> 
 <summary><h4>TIMER</h4></summary>
-hellooooo
+
 </details>
 
 </details>
