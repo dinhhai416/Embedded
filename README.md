@@ -1394,7 +1394,7 @@ void example_function(int arg1, float arg2, char arg3) {
 <details> 
 <summary><h4>MAKEFILE</h4></summary>
 
-#### 1.Code trong make để compile C/C++:
+#### 1. Code trong make để compile C/C++:
 
 **ABTRACT:**
 ``` makefile
@@ -1606,3 +1606,81 @@ tao ra "file .o" chung
 </details>
 
 </details>
+
+<!-- ------------------------------------------------------------------------------------------------------------------------ -->
+
+<details>
+<summary><h3>C++ PROGRAMMING LANGUAGE</h3></summary>
+
+<details> 
+<summary><h4>AUTOSAR C++ CODING GUIDE</h4></summary>
+</details>
+
+<details> 
+<summary><h4>CLASS</h4></summary>
+</details>
+
+<details> 
+<summary><h4>OOP</h4></summary>
+</details>
+
+<details> 
+<summary><h4>VECTOR</h4></summary>
+</details>
+
+<details> 
+<summary><h4>TEMPLATE</h4></summary>
+</details>
+
+<details> 
+<summary><h4>NAME SPACE</h4></summary>
+</details>
+
+<details> 
+<summary><h4>VIRTUAL FUNCTION</h4></summary>
+</details>
+
+<details> 
+<summary><h4>LINKED LIST</h4></summary>
+</details>
+
+<details> 
+<summary><h4>MAP</h4></summary>
+</details>
+
+<details> 
+<summary><h4>LAMDA</h4></summary>
+</details>
+
+
+
+</details>
+
+<!-- ------------------------------------------------------------------------------------------------------------------------ -->
+
+<details>
+<summary><h3>EMBEDDED AUTOMOTIVE</h3></summary>
+
+<details> 
+<summary><h4>SPI</h4></summary>
+</details>
+
+<details> 
+<summary><h4>I2C</h4></summary>
+</details>
+
+<details> 
+<summary><h4>UART</h4></summary>
+</details>
+
+<details> 
+<summary><h4>INTERRUPT</h4></summary>
+</details>
+
+<details> 
+<summary><h4>TIMER</h4></summary>
+</details>
+
+
+</details>
+
