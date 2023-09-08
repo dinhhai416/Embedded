@@ -1,0 +1,29 @@
+Con trỏ hằng:
+	int x = 10, y = 20;
+	const int *px = &x;
+	x = 15;    // OK
+	*px = 20;  // ERROR do cố ghi lại giá trị cho vùng nhớ qua con trỏ hằng
+	px = &y;   // OK
+
+	Con trỏ hằng là con trỏ có thể trỏ đến 1 vùng nhớ 
+	(biến gì cũng được _ Trừ register và extern _ volatile thì phải là con trỏ volatile)
+	Đặc điểm: con trỏ chỉ đọc (read-only), không thể ghi giá trị vào vùng nhớ đó. 
+	Nhưng có thể trỏ con trỏ này qua địa chỉ khác.
+
+hằng con trỏ:
+	int x = 10, y = 20;
+	int* const px = &x;
+	*px = 15;  // OK
+	px = &y;   // ERROR vì cố tình chuyển đổi địa chỉ trỏ của con trỏ
+
+	Đặc điểm: chỉ có thể trỏ đến 1 địa chỉ và không thể thay đổi địa chỉ trỏ được nữa.
+	Có  thể đọc ghi giá trị vùng nhớ thông qua chính bản thân con trỏ đó. 
+
+Kết hợp con trỏ hằng và hằng con trỏ:
+	int x = 10; y = 20;
+	const int* const px = &x;
+	*px = 15;  // ERROR
+	px = &y;   // ERROR
+
+	Khi này, bạn không thể thay đổi vùng nhớ con trỏ px đang trỏ tới 
+	và cũng không thể thay đổi giá trị vùng nhớ đó thông qua (*px).

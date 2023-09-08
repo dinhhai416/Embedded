@@ -1,0 +1,54 @@
+khác nhau giữa Macro và Function?
+kích thước lớn là cái gì lớn? RAM_file.i_file.s_file.o_file.exe
+có bao nhiêu phân vùng nhớ? Kể tên? tác dụng
+khác nhau giữa stack và heap?
+k free bộ nhớ sau khi cấp phát động thì sẽ bị gì?
+	rò rỉ bộ nhớ (leak memory)
+tắt máy reset thì có hết tình trạng đó k?
+	có vì phần vùng nhớ nằm trong RAM, mà RAM thì sẽ bị reset khi tắt nguồn.
+static toàn cục và static cục bộ?
+
+typedef struct{
+	int x;
+	int y;
+}Points; 
+Points nằm ở phân vùng nào? 
+	Không ở phân vùng nào cả (nếu không sử dụng Points)
+	Nằm ở phân vùng text (Nếu có sử dụng Points)
+	Vì nếu k sử dụng Points thì quá trình Compiler sẽ bỏ đi khai báo của Points
+	Nếu có sử dụng Points thì quá trình Compiler sẽ để lại khai báo của Points
+
+Struct và Union?
+Có bao nhiêu loại con trỏ? Đặc tính từng loại
+con trỏ là gì?
+	con trỏ là một biến mà giá trị của nó là địa chỉ của 1 đối tượng
+Khi nào sử dụng biến, khi nào sử dụng con trỏ làm input parameter?
+Quá trình compiler là gì? bao nhiêu bước và những bước đó làm gì?
+Con trỏ hằng và hằng con trỏ?
+
+sử dụng 'const' trong input parameter có nghĩa là gì?
+	Không thể thay đổi giá trị (copy) nạp vào trong hàm
+	VD:
+	void test(const int a) 
+	//tuy khai báo là 'const int a' NHƯNG vẫn có thể nạp 'int a' vào được.
+	{
+		a = 10; //lỗi vì k thể thay đổi giá trị biến const 
+	}
+LƯU Ý: tất cả các biến nằm CỤC BỘ đều lưu ở Stack trừ biến static
+
+Cấp phát quá nhiều biến vào phân vùng Stack sẽ dẫn đến việc gì?
+	Stack Overflow -> ứng dụng k thể hoạt động được (chỉ 1 ứng dụng mình tạo thôi)
+
+Cấp phát bộ nhớ động mà k free thì sẽ bị Memory Leak. Vậy Leak Memory là gì?
+	Cấp phát động mà k free thì sẽ dẫn tới bộ nhớ RAM càng đầy.
+	Garbage Collector (GC) nhỏ sẽ được kích hoạt để làm sạch bộ nhớ.
+	Khi đó Garbage Collector nhỏ sẽ chạy đồng thời với chương trình làm chương trình chậm lại.
+	
+	Khi gặp lỗi Memory Leak lớn -> GC nhỏ sẽ k thể thu hồi vùng nhớ kịp -> GC lớn được kích hoạt
+	GC lớn (được gọi là 'Stop - the - World) sẽ dừng toàn bộ main thread của ứng dụng
+	=> khiến ứng dụng bị trễ và thậm chí k thể chạy được 
+
+	Nếu vấn đề vẫn tiếp tục k đc giải quyết 
+	-> bộ nhớ Heap tiếp tục tăng cho đến khi k còn bộ nhớ để cấp nữa
+	=> lỗi OutOfMemoryError xảy ra -> Crash
+	Ảnh hưởng cả hết thống (tất cả or CTrinhf mình k sao nhưng CT khác lại bị)

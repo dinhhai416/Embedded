@@ -1,0 +1,10 @@
+output: source/main.o source/test.o
+	gcc -c output/main.o output/.o -o output/out.exe	
+main.o: source/main.c     
+	gcc -c source/main.c  -o  output/main.o
+test.o: source/test.c     test.h
+	gcc -c source/test.c  -o  output/test.o
+run: 
+	./o/out.exe 
+clean: # rm *.o out
+	rm *.o out                                    

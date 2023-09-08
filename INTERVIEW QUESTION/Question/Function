@@ -1,0 +1,10 @@
+Program Counter
+Main Stack Pointer
+
+Giả sử kiến trúc của vi điều khiển là 32bit
+chương trình sẽ chạy từng địa chỉ từ 0x00 + 4 (phụ thuộc vào kiến trúc của vi điều khiển)
+Program Counter khi gặp hàm sẽ nhảy đến địa chỉ của hàm và thực hiện tất cả các lệnh trong hàm
+khi mà Program Counter chạy không đúng lộ trình (nhảy sang địa chỉ của hàm)
+-> Stack Pointer sẽ lưu địa chỉ tiếp theo của địa chỉ trước khi mà Program Counter nhảy đi.
+Sau khi Program Counter thực hiện xong tất cả các lệnh trong hàm
+-> Program Counter sẽ quay về địa chỉ mà Stack Pointer đang lưu để thực hiện tiếp chương trình.
