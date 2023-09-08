@@ -33,7 +33,7 @@ int16_t var3;// 2 byte // 2^16 memory //Giá trị -(2^16)/2 to (2^16)/2 -1
 ```
 #### 2. Typedef:
   
-- Được dùng để thay đổi tên cho kiểu dữ liệu.
+Được dùng để thay đổi tên cho kiểu dữ liệu.
 ```c
  typedef struct 
  {
@@ -49,27 +49,25 @@ typedef int typeint;// dung typedef de doi ten int
 
 #### 3. Function:
  
- Trong C, thì sẽ hai loại hàm trả về giá trị hoặc không có kiểu trả về. Ngoài ra còn có hàm trả lại địa chỉ.
+Dùng để tạo ra các chương trình con, khi sử dụng chỉ cần gọi `function()` vào hàm `main()`
  ```c
  // Hàm không có kiểu trả về
- void test (){
+ void test (){                         
     printf("Gia tri ham so\n");
  }
-// Hàm trả lại giá trị là kiểu int
- int tong(int a, int b){
+// Hàm trả về giá trị là kiểu int
+ int tong(int a, int b){                 
      return a + b;
  }
- // Hàm trả lại địa chỉ của 1 đối tượng
+ // Hàm trả về địa chỉ của 1 đối tượng
  int *ptr(){   // Hàm trả lại địa chỉ 
     static int x = 10;
     return &x;
  }
  ```
 #### 4. Enum:
-  Là kiểu dữ liệu liệt kê trong C, các member sẽ được giá trị và các member kế sau sẽ được + 1. Dùng typedef để thay đổi tên dữ liệu.
-
-  **Tóm lại:**
-  + Giá trị của các phần tử sẽ bằng 0 -> N-1 nếu không gán giá trị ban đầu
+  Là kiểu dữ liệu liệt kê, tự định nghĩa, dùng để gán tên cho các hằng số.
+  + Giá trị của các phần tử sẽ bằng 0 -> n-1 nếu không gán giá trị ban đầu
   + Giá trị của phần tử sau sẽ tăng lên 1 đơn vị so với phần tử đứng trước
  ```c
  typedef enum{
@@ -83,36 +81,33 @@ typedef int typeint;// dung typedef de doi ten int
 Thu x;
  ```
 #### 5. For loop:
-Vòng lặp for sẽ có 3 phần: Khởi tạo biến -> So sánh điều kiện -> Thay đổi giá trị.
+Vòng lặp for sẽ có 3 phần: Khởi tạo biến, so sánh điều kiện và thay đổi giá trị.
 
 ```c
-for(uint8_t i=0; i<10;i++) // khoi tao bien, condition of i, change value
+for( uint8_t i = 0; i < 10; i++) // khoi tao bien, condition of i, change value
     {
-        printf("Gia tri: %d\n", i); // gia tri man hinh
-    }
-
-    // break in loop
-     for(uint8_t i=0; i<10;i++) 
-    {
-        if(i>6) break;// when meet break then exit loop
         printf("Gia tri: %d\n", i); 
     }
 
+    // break in loop
+     for( uint8_t i = 0; i < 10; i++) 
+    {
+        if( i > 6 ) break;// when meet break then exit loop
+        printf("Gia tri: %d\n", i); 
+    }
     // continious in loop
      for(uint8_t i=0; i<10;i++) 
     {
-        if(i>6) continue;;// when meet continious cancel 
+        if( i > 6 ) continue;;// when meet continious cancel 
         //cau lenh ben duoi and quay lai vong lap
         printf("Gia tri: %d\n", i); 
     }
 
 ```
-#### 6. While:
+#### 6. While loop:
 Đối với while thì sẽ thực hiện kiểm tra điều kiện sau đó mới thực hiện câu lệnh bên dưới.
 ```c
- // loop while
-
-    while (i<10)// nếu thoả điều khiên trong while thì tiếp tục lệnh
+    while ( i < 10 )// nếu thoả điều khiên trong while thì tiếp tục lệnh
     {
         printf("Gia tri cua dieu khien: %d\n",i);
         i++;
@@ -121,15 +116,14 @@ for(uint8_t i=0; i<10;i++) // khoi tao bien, condition of i, change value
 #### 7. Do while:
 Đối với do while thì sẽ thực hiện câu lệnh trước rồi mới kiểm tra điều kiện.
 ```c
-// do while
   do
    {
     printf("Gia tri la : %d\n", x);
     x++;
-   } while (x<10);
+   } while ( x < 10 );
 ```
 #### 8. If else:
-Đối với trường hợp này nếu 1 trong các điều kiện thoả thì thoát và xuống câu lệnh bên dưới.
+Đây là 1 câu lệnh điều kiện để kiểm tra 1 điều kiện nào có được thỏa mãn không. Nếu điều kiện được thỏa mãn thì sẽ thực thi đoạn code bên trong nó.
 ```c
 if (y>=8)
    {
@@ -145,22 +139,7 @@ else
    }
 
 ```
-Đối với trường hợp này thì sẽ so sánh các trường hợp nếu thoả thì thoát và xuống câu lệnh bên dưới. Ở kiểu này thì nó sẽ làm tốn thời gian xử lý hơn.
-  ```c
-  if (y>=8)
-   {
-    printf("Gioi ");
-   }
-   if (y>=7)
-   {
-    printf("Kha ");
-   }
-   if (y<=5)
-   {
-     printf("Trung Binh ");
-   }
-   
-  ```
+
   #### 9. Switch case:
 Đối vơi switch case thì sẽ so sánh từng case sẽ thực hiện. Cần phải phải có `break` để thoát ra nếu không nó sẽ thực hiện lệnh bên dưới. Nếu không có trường hợp nào thoả thì xuống `default` thực hiện.
   ```c
@@ -189,11 +168,10 @@ else
 </details>
 
 
-
 <details>
 <summary><h4>POINTER</h4></summary>
 
-#### 1. Khái niệm về Pointer?
+#### 1. Pointer
 
 * Là biến sẽ lưu giá trị là địa chỉ bộ nhớ/ô nhớ của đối tượng mà nó trỏ đến.
 
@@ -211,21 +189,17 @@ else
  int *ptr= &a;
 
  printf("Dia chi cua a : %p\n", &a);
-
  printf("Dia chi cua a : %p\n", ptr);
-
  printf("Gia tri cua a : %p\n", *(&a));
-
  printf("Gia tri cua a : %p\n", *ptr);
 ```
   
 #### 2. Kích thước của  biến con trỏ
 
 Thực tế kích thước con trỏ sẽ phụ thuộc vào kiến trúc của vi xử lý:
-
 - Kiến trúc 32 bit/8 bit = 4 bytes
 - Kiến trúc 64 bit/8 bit = 8 bytes
-- Kiến trúc 16 bit/8 bit = 2 bytes
+
 
 #### 3. Khai báo con trỏ:
   <`kiểu dữ liệu`>  *<`tên biến`>
@@ -238,7 +212,7 @@ Thực tế kích thước con trỏ sẽ phụ thuộc vào kiến trúc của 
   char *ptr3; // khai báo con trỏ để trỏ tới biến kiểu ký tự 
 ```
 
- *Example :*
+ **Example :**
 ```C
 #include <stdio.h>
 int main(){
@@ -249,84 +223,58 @@ int main(){
 return 0;
 }
 ```
-#### 4. Con trỏ Void: 
+#### 4. Void pointer: 
+`void *ptr` là con trỏ có thể trỏ đến các đối tượng của bất kỳ kiểu dữ liệu nào. Nhưng để lấy giá trị tại các đối tượng đó thì cần ép kiểu dữ liệu cho con trỏ.
 
-*Khai báo* : void *ptr;
-
-Void *ptr là con trỏ có thể trỏ lưu địa chỉ tất cả các đối tượng với kiểu dữ liệu khác nhau. Nhưng để lấy giá trị tại các đối tượng đó thì cần ép kiểu dữ liệu cho con trỏ.
-
-```C
-printf("test i=%d\n",(int*)ptr); //ép kiểu ptr về int
-```
-Nếu muốn lấy giá trị tại địa chỉ
-```C
-printf("test i=%d\n",*(int*)ptr);  
-```
 **Example:**
 ```c
-//con tro void
-int i=10;
-double d=10.3;   
-char c='A';
+int i = 10;
+double d = 10.3;   
+char c = 'A';
 
-void *ptr=NULL; // con trỏ void sẽ lưu Null(giá trị 0 ) sẽ không biến thành con trỏ rác
+void *ptr = NULL; // con trỏ void sẽ lưu Null(giá trị 0) sẽ không biến thành con trỏ rác
 
 void test(){
     printf("This is a test\n");
  }
 
 ptr=&d;
-printf("Gia tri tai dia chi: %lf ",*((double*)ptr));// Lấy giá trị của đối tượng khi con trỏ void trỏ đến và ép kiểu dữ liệu double cho ptr
-
+printf("Gia tri tai dia chi: %lf ",*((double*)ptr));// ép kiểu con trỏ void thành kiểu double
 ptr=&c;
-printf("Gia tri tai dia chi: %c ",*((char*)ptr));// Lấy giá trị của đối tượng khi con trỏ void trỏ đến và ép kiểu dữ liệu char cho ptr
-
+printf("Gia tri tai dia chi: %c ",*((char*)ptr));// ép kiểu con trỏ void thành kiểu char
 ptr=&i;
-printf("Gia tri tai dia chi: %d ",*((int*)i));// Lấy giá trị của đối tượng khi con trỏ void trỏ đến và ép kiểu dữ liệu int cho ptr
-
+printf("Gia tri tai dia chi: %d ",*((int*)ptr));// ép kiểu con trỏ void thành kiểu int
 ptr=&test;
 printf("Dia chi ham test : %p\n ", ptr);// Lấy địa chỉ của hàm test
 ```
 
 #### 5. Con trỏ hàm:
 
-**`<kiểu trả về> (*tên con trỏ)(input parameter)`**
-* Là con trỏ lưu trữ địa chỉ của một hàm, ta có thể gọi hàm(với các input parameter) mà thông qua biến đó trỏ tới như sau:
-
-`**Ngoài ra, ép kiểu con trỏ trỏ đến object thành con trỏ hàm:**`
+`<kiểu trả về> (*tên con trỏ)(input parameter)`
+Là con trỏ lưu trữ địa chỉ của một hàm, ta có thể gọi hàm(với các input parameter) mà thông qua biến đó trỏ tới như sau:
 
 ```c
- void *ptr3=NULL;// con trỏ void
-    
- ptr3=&Tich1;// tro den luu dia chi ham Tich
-
-((void(*)(int,int))ptr3)(8,4); // ép kiểu về con trỏ thành con trỏ hàm với hai input parameter
+ void *ptr3 = NULL;// con trỏ void  
+ ptr3 = &Tich1;// tro den luu dia chi ham Tich
+((void (*)(int,int))ptr3)(8,4); // ép kiểu về con trỏ thành con trỏ hàm với hai input parameter
 ```
 
-**Example về Pointer hàm nhận với input paramater kiểu int và trả về dữ liệu kiểu void.**
-```C
-void (*func)(int,int);// khai báo con trỏ hàm với hai input parameter
-```
-*Các function:*
+**Example:**
 ```c
 void Tong(int a, int b){
-    printf("Tong cua %d va %d: %d\n",a,b,a+b);
+    printf("Tong cua %d va %d: %d\n", a, b ,a+b);
 }
-
 void Hieu(int a, int b){
-    printf("Hieu cua %d va %d: %d\n",a,b,a-b);
+    printf("Hieu cua %d va %d: %d\n",a ,b ,a-b);
 }
-
 void Tich1(int a, int b){
-    printf("Multiple cua %d va %d: %d\n",a,b,a*b);
+    printf("Multiple cua %d va %d: %d\n",a ,b ,a*b);
 }
-
 int Tich2(int a, int b){ // hàm trả về kiểu int
     return a*b;
 }
-
 void Divide(int a, int b){
-    printf("Divide cua %d va %d: %lf\n",a,b, (double) a/b);
+    printf("Divide cua %d va %d: %lf\n",a ,b ,(double) a/b);
 }
 ```
 
@@ -335,95 +283,83 @@ int main(){
 
       void(*ptr1)(int,int);// khai báo con trỏ hàm kiểu void
 
-      ptr1=&Tong;// lưu địa chỉ hàm Tong
-      ptr1(4,5); // Cho hàm Tong với hai input parameter
+      ptr1 = &Tong;// lưu địa chỉ hàm Tong
+      ptr1(4,5);   // Cho hàm Tong với hai input parameter
 
-      ptr1=&Hieu;// lưu địa chỉ hàm Hieu
-      ptr1(8,2); // Cho hàm Hieu với hai input parameter
+      ptr1 = &Hieu;// lưu địa chỉ hàm Hieu
+      ptr1(8,2);   // Cho hàm Hieu với hai input parameter
 
-      ptr1=&Tich1;// lưu địa chỉ hàm Tich1
-      ptr1(2,4);  // Cho hàm Tich1 với hai input parameter
+      ptr1 = &Tich1;// lưu địa chỉ hàm Tich1
+      ptr1(2,4);    // Cho hàm Tich1 với hai input parameter
 
-      ptr1=&Divide;// lưu địa chỉ hàm Divide
-      ptr1(6,2);   // Cho hàm Divide với hai input parameter
+      ptr1 = &Divide;// lưu địa chỉ hàm Divide
+      ptr1(6,2);     // Cho hàm Divide với hai input parameter
 
-      int(*ptr2)(int,int)=&Tich2;// khai báo con trỏ hàm kiểu int 
-      ptr2(5,6);                 // Cho hàm Tich2 với hai input parameter               
+      int(*ptr2)(int,int) = &Tich2;// khai báo con trỏ hàm kiểu int 
+      ptr2(5,6);                   // Cho hàm Tich2 với hai input parameter               
 }
 ```
-
-**Ngoài ra, ta có thể dùng hàm function với input paramater là  `con trỏ hàm` với hai `biến kiểu int`**
+Sử dụng con trỏ hàm như một input parameter.
 ```c
-void Tinhtoan(void(*func)(int,int),int a, int b){    // input: con trỏ hàm và hai biến kiểu int
+void Tinhtoan(void (*func)(int,int) ,int a, int b){    // input: con trỏ hàm và hai biến kiểu int
       printf("Tinh Toan\n");
      func(a,b);                                      // input : a và b
 }
 
-
 int main(){
-
    Tinhtoan(&Tong,9,9);  // Cung cấp input cho hàm Tinhtoan
-
    Tinhtoan(&Divide,9,4); // Cung cấp input cho hàm Tinhtoan
- 
-}
+ }
 ```
-**Sủ dụng một mảng con trỏ để trỏ đến lưu trữ địa chỉ các hàm:**
+**Sử dụng một mảng con trỏ để trỏ đến lưu trữ địa chỉ các hàm:**
 
 ```C
 int main(){
 
 void *arr[]={&Tong,&Hieu,&Tich1,&Divide};// Mảng của con trỏ lưu địa chỉ các hàm
-
 ((void(*)(int,int))arr[2])(6,7);// ép kiểu con tro arr[2] thành con tro hàm 
-
 ((void(*)(int,int))arr[0])(8,6);// ép kiểu con tro arr[0] thành con tro hàm 
-
 return 0;
 }
 ```
-### Tại sao phải dùng con trỏ Null?
-
+**Con trỏ NULL**
 `Con trỏ NULL`: khi khai báo 1 con trỏ phải gán địa chỉ cho nó, nếu khai báo chưa sử dụng thì khai báo thành con trỏ NULL ( lưu giá trị 0 ), không gán trị cho thì nó sẽ là con trỏ rác và trỏ đến lưu địac chỉ rác.
 
 
 #### 7.Pointer to pointer:
-* Cũng là một biến con trỏ nhưng sẽ lưu giá trị là địa chỉ của một biến con trỏ khác thay vì lưu địa chỉ của một đối tượng.
+Cũng là một biến con trỏ nhưng sẽ lưu giá trị là địa chỉ của một biến con trỏ khác thay vì lưu địa chỉ của một đối tượng.
 
 ```C
-int *ptr=&a;// ptr1 trỏ đến lưu địa chỉ của biến a
-int **ptr1= &ptr; // ptr1 đến trỏ đến lưu địa chỉ của ptr
+int *ptr = &a;// ptr1 trỏ đến lưu địa chỉ của biến a
+int **ptr1 = &ptr; // ptr1 đến trỏ đến lưu địa chỉ của ptr
 
 printf("Gia tri: %p",*(ptr1))// lấy giá trị mà ptr1 lưu địa chỉ đó là ptr
-
 printf("Gia tri: %d",*(ptr))// lấy giá trị mà ptr lưu địa chỉ đó là a
-
 printf("Gia tri: %d",*(*ptr1))// lấy giá trị địa chỉ a
 ```
 * Lưu ý: Khi nào dùng input parameter là con trỏ và biến. Dùng biến khi ta không muốn thay đổi giá trị của biến trong hàm. Dùng con trỏ khi ta có thể thay đổi giá trị biến sử dụng trong hàm.
 ```c
    test(int *ptr, int a);
-
    test(&a,5);
 ```
-#### 7. CON TRỎ HẰNG :
+#### 7. Con trỏ hằng:
 ```c
 int i = 10;
 const int *ptr = &i;  // con trỏ hằng
-*ptr = 89;  // lỗi vì không thể thay đổi giá trị của i thông qua con trỏ ptr chỉ có thể thay đổi giá trị qua i
+*ptr = 89;  // lỗi 
 // Chỉ thay đổi được địa chỉ mà biến con trỏ lưu
 ptr = &x;   // thoả
-x = 50;     // thoa
+x = 50;     // thoã
 ```
 
-#### 8. HẰNG CON TRỎ :
+#### 8. Hằng con trỏ:
 ```c
 int i = 10;
 int* const ptr = &x;
 *ptr = 15;  // thay đổi giá trị i thông qua con trỏ ptr
 px = &y;   // không thể thay đổi giá trị địa chỉ mà ptr lưu
 ```
-#### 9. Chức năng CONST :
+#### 9. Chức năng CONST:
 ```c
 void test(){
     const int a=10; // khoi tao phan vung Stack 
@@ -436,31 +372,25 @@ void test(){
 **Example:**
 ```c
 int arr[] = {6, 9, 5};
-
-void string(const int arr[]){    //khi có const thì ta không thể thay đổi giá trị của các phần tử mảng
+void string(const int arr[]);//khi có const thì ta không thể thay đổi giá trị của các phần tử mảng
 
 int main(){
    string(arr);
 }
-}
+
 ```
 ```c
-
 void test1(const int a)// 0xa2 k de thay gia tri 20 khi co "const"
-{
-
-}
 
 int main(int argc, char const *argv[])
 {
-  
-    int b=20;// 0xc1
+      int b=20;// 0xc1
     test1(b);// gan gia tri 20
     printf(""Gia tri : %d);
     return 0;
 }
 ```
-*Lưu ý :*
+
 ```c
 typedef struct main
 {
@@ -468,8 +398,7 @@ typedef struct main
     int y;
 }Point;
 // chỉ là kiểu dữ liệu (format) chưa được khởi động bên trong phân vùng nhớ
-
-Point x =(1,3);// khởi tạo phân vùng nhớ
+Point x = (1,3);// khởi tạo phân vùng nhớ
 ```
 
 </details>
@@ -502,23 +431,22 @@ const int b =20;// Khai bao constant duoc luu phan vung o TEXT
 
 #### 2. Phân vùng Data:
 
-- Quyền truy cập là Read và Write.
+Quyền truy cập là Read và Write.
  ```c
   int a=30;// khai bao biến toàn cục phân sẽ lưu phân vùng Data
   a=20 ;  // cho quyền write biến toàn cục
   printf("a= %d\n", a);
  ```
 
-- Chứa biến toàn cục or biến static với giá trị khởi tạo khác không.
+Chứa biến toàn cục hoặc biến static với giá trị khởi tạo khác không.
 ```c
-int a=9;// Biến toàn cục ở  phầnn vung Data
-static int d=8;// Bien global/Local static ở phân vùng Data
+int a = 9;// Biến toàn cục ở  phầnn vung Data
+static int d = 8;// Bien global/Local static ở phân vùng Data
 ```
-- Được giải phóng/thu hồi khi kết thúc vòng đời của chương trình.
+Được giải phóng/thu hồi khi kết thúc vòng đời của chương trình.
 
 #### 3. Phân vùng BSS:
-
-- Quyền truy cập là Read và Write.
+Quyền truy cập là Read và Write.
  ```c
   int b=0;
   // khai bao biến toàn cục phân vùng BSS
@@ -526,25 +454,25 @@ static int d=8;// Bien global/Local static ở phân vùng Data
   printf("b= %d\n", b);
  ```
 
-- Chứa biến toàn cục or biến static với giá trị khởi tạo khác không.
+Chứa biến toàn cục or biến static với giá trị khởi tạo khác không.
 ```c
 int a;
 int a=0;
 // Biến global được phân vung BSS
 static int d=0;// Bien global/local static được phan vùng ở BSS
 ```
-- Được giải phóng/thu hồi khi kết thúc vòng đời của chương trình.
+Được giải phóng/thu hồi khi kết thúc vòng đời của chương trình.
      
 ####  4. Phân vùng Stack:
 
-- Quyền truy cập là read và write.
+Quyền truy cập là read và write.
 
   ```c
     int a=20// Bien local ở phân vùng Stack
     a=10;
     printf("a= %d\n", a);
   ```
-- Được sử dụng cấp phát cho biến local, input parameter của hàm,…
+Được sử dụng cấp phát cho biến local, input parameter của hàm,…
   ```c
    void Tong(int a, int b){   // hai bien input parameter a va b duoc phan vung o Stack
 
@@ -559,7 +487,7 @@ static int d=0;// Bien global/local static được phan vùng ở BSS
    }
   ```
 
-- Sẽ được giải phóng/thu hồi vùng nhớ khi ra khỏi block code/hàm
+Sẽ được giải phóng/thu hồi vùng nhớ khi ra khỏi block code/hàm
   ```c
    Tong(5,7);      // khoi tao int a // 0x01
     //             // khoi tao int b // 0xc0
@@ -582,11 +510,9 @@ static int d=0;// Bien global/local static được phan vùng ở BSS
     printf("dia chi %d: %p\n",i+1,arr + i);
  }
   ```
-
-- Quyền truy cập là read và write.
-
--Các hàm được sử dụng để cấp phát bộ nhớ động như: Malloc, Realloc.
-- Sẽ được giải phóng/ thu hồi vùng nhớ khi gọi hàm free().
+Quyền truy cập là read và write.
+Các hàm được sử dụng để cấp phát bộ nhớ động như: Malloc, Realloc.
+Sẽ được giải phóng/ thu hồi vùng nhớ khi gọi hàm free().
 ```c
     uint16_t *ptr= (uint16_t*)malloc(sizeof(uint16_t)*5);
     // 0x01 0x02 0x03 0x04 0x05
@@ -615,9 +541,7 @@ static int d=0;// Bien global/local static được phan vùng ở BSS
     for (uint8_t i = 0; i < 7; i++)
     {
       printf("Gia tri i = %d\n", ptr[i]);
-    
-    // Cac malloc, calloc, realloc thi bo nho thi duoc luu phan vung nho Heap
-
+    }
     free(ptr);// Sau khi cap phat bo nho dong thi can giai phong/thu hoi bo nho 
 ```
 **Cấp phát bộ nhớ động trong C : Malloc, Calloc, Realloc**
@@ -628,30 +552,25 @@ void * malloc (size_t size);
 void * realloc (size_t num, size_t size);
 void * calloc (size_t count ,size_t size);
 ```
- * Dùng  malloc tạo ra vùng nhớ động trên Heap và biến con trỏ trỏ đến.
- * Dùng  realloc để thay đổi kích thước vùng nhớ động của phần tử khi mà biến con trỏ trỏ đến.
- * Dùng  calloc cũng giống malloc thì các phần tử trên vùng nhớ động thì nó đều sẽ có giá trị là 0.
-   
-   `Cả ba hàm đều trả về là địa chỉ(Pointer kiểu void) cho nên ta cần phải ép kiểu dữ liệu hàm`
-* Example
+Dùng  malloc tạo ra vùng nhớ động trên Heap và biến con trỏ trỏ đến.
+Dùng  realloc để thay đổi kích thước vùng nhớ động của phần tử khi mà biến con trỏ trỏ đến.
+Dùng  calloc cũng giống malloc thì các phần tử trên vùng nhớ động thì nó đều sẽ có giá trị là 0.
+
 ```C
 // cú pháp malloc, realloc
+uint8_t *ptr = (uint8_t*) malloc(sizeof(uint8_t)*5);
+unit16_t *ptr = (uint16_t*) malloc(sizeof(unit16_t)*5);
+```
+ Dùng `free()` : để thu hồi vùng nhớ.
 
-uint8_t *ptr=(uint8_t*)malloc(sizeof(uint8_t)*5);          // tao vung nho 5 byte với mỗi phần từ là 1 byte
-unit16_t *ptr=(uint16_t*)malloc(sizeof(unit16_t)*5);      // tao ra 1 mang voi 5 phan tư. Moi phan tu co kich thuoc 2 byte
-```
- Dùng `free` : để thu hồi vùng nhớ.
-```C
- free(ptr); // giai phong bo nho dong o phan vung Heap
-```
 
 #### 6. Stack và Heap
 
-• Phân vùng nhớ Heap và Stack đều được lưu trữ trong RAM khi chương trình được thực thi.
+* Phân vùng nhớ Heap và Stack đều được lưu trữ trong RAM khi chương trình được thực thi.
 
-• Bộ nhớ Stack được dùng để lưu trữ các biến cục bộ trong hàm, tham số truyền vào... Truy cập vào bộ nhớ này rất nhanh và được thực thi khi chương trình được biên dịch.
+* Bộ nhớ Stack được dùng để lưu trữ các biến cục bộ trong hàm, tham số truyền vào... Truy cập vào bộ nhớ này rất nhanh và được thực thi khi chương trình được biên dịch.
 
-• Bộ nhớ Heap được dùng để lưu trữ vùng nhớ cho những biến con trỏ để trỏ cấp phát bộ nhớ động cho các hàm malloc - calloc - realloc.
+* Bộ nhớ Heap được dùng để lưu trữ vùng nhớ cho những biến con trỏ để trỏ cấp phát bộ nhớ động cho các hàm malloc - calloc - realloc.
 
 **Kích thước vùng nhớ**
 
@@ -664,9 +583,9 @@ unit16_t *ptr=(uint16_t*)malloc(sizeof(unit16_t)*5);      // tao ra 1 mang voi 5
 * Stack: vùng nhớ Stack được quản lý bởi hệ điều hành, dữ liệu được lưu trong Stack sẽ tự 
 động hủy khi hàm thực hiện xong công việc của mình.
 
-* Heap: Vùng nhớ Heap được quản lý bởi lập trình viên (trong C hoặc C++), dữ liệu trong Heap sẽ không bị hủy khi hàm thực hiện xong, điều đó có nghĩa bạn phải tự tay hủy vùng nhớ bằng câu lệnh `free (trong C)`, và `delete() hoặc delete [] (trong C++)`, nếu không sẽ xảy ra hiện tượng rò rỉ bộ nhớ. 
+* Heap: Vùng nhớ Heap được quản lý bởi lập trình viên (trong C hoặc C++), dữ liệu trong Heap sẽ không bị hủy khi hàm thực hiện xong, điều đó có nghĩa bạn phải tự tay hủy vùng nhớ bằng câu lệnh `free (trong C)`, và `delete()` hoặc `delete [] (trong C++)`, nếu không sẽ xảy ra hiện tượng rò rỉ bộ nhớ. 
 
-*`Lưu ý: việc tự động dọn vùng nhớ còn tùy thuộc vào trình biên dịch trung gian.`*
+*Lưu ý: việc tự động dọn vùng nhớ còn tùy thuộc vào trình biên dịch trung gian.*
 
   **Vấn đề lỗi xảy ra đối với vùng nhớ**
   
