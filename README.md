@@ -326,7 +326,7 @@ return 0;
 `Con trỏ NULL`: khi khai báo 1 con trỏ phải gán địa chỉ cho nó, nếu khai báo chưa sử dụng thì khai báo thành con trỏ NULL ( lưu giá trị 0 ), không gán trị cho thì nó sẽ là con trỏ rác và trỏ đến lưu địac chỉ rác.
 
 
-#### 7.Pointer to pointer:
+#### 7. Pointer to pointer:
 Cũng là một biến con trỏ nhưng sẽ lưu giá trị là địa chỉ của một biến con trỏ khác thay vì lưu địa chỉ của một đối tượng.
 
 ```C
@@ -342,7 +342,7 @@ printf("Gia tri: %d",*(*ptr1))// lấy giá trị địa chỉ a
    test(int *ptr, int a);
    test(&a,5);
 ```
-#### 7. Con trỏ hằng:
+#### 8. Con trỏ hằng:
 ```c
 int i = 10;
 const int *ptr = &i;  // con trỏ hằng
@@ -352,17 +352,17 @@ ptr = &x;   // thoả
 x = 50;     // thoã
 ```
 
-#### 8. Hằng con trỏ:
+#### 9. Hằng con trỏ:
 ```c
 int i = 10;
 int* const ptr = &x;
 *ptr = 15;  // thay đổi giá trị i thông qua con trỏ ptr
 px = &y;   // không thể thay đổi giá trị địa chỉ mà ptr lưu
 ```
-#### 9. Chức năng CONST:
+#### 10. Chức năng CONST:
 ```c
 void test(){
-    const int a=10; // khoi tao phan vung Stack 
+    const int a = 10; // khoi tao phan vung Stack 
                    // thoat hoi ham thi thu hoi vung nho
 //Các biến khai báo cục bộ và input parameter đều được lưu ở phân vùng Stack trừ cục bộ static
 }
