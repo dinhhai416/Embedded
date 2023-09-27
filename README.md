@@ -43,7 +43,7 @@ int16_t var3;// 2 byte // 2^16 memory //Giá trị -(2^16)/2 to (2^16)/2 -1
 
 typedef int typeint;// dung typedef de doi ten int
 
- typeint a=10;   // khai bao a theo typeint
+ typeint a = 10;   // khai bao a theo typeint
  ToaDo data;     //  khai bao data theo ToaDo
 ```
 
@@ -113,7 +113,7 @@ for( uint8_t i = 0; i < 10; i++) // khoi tao bien, condition of i, change value
         i++;
     }
 ```
-#### 7. Do while:
+#### 7. Do while loop:
 Đối với do while thì sẽ thực hiện câu lệnh trước rồi mới kiểm tra điều kiện.
 ```c
   do
