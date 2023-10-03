@@ -1422,7 +1422,7 @@ clean:
 #### COMPLILER IN C PROGRAMMING LANGUAGE:
 
 ```MAKEFILE
-ossh-keygen -t ed25519 -C "quocphu1807@gmail.com"
+ossh-keygen -t ed25519 -C "q@gmail.com"
 
 # Chuyen tu file source sang file preprocesser: Pre-processor
 "gcc -E main.c -o main.i"
