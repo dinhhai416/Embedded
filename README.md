@@ -2588,7 +2588,7 @@ vector khác cùng kiểu. Kích thước có thể khác nhau.
 
     v.swap(v1);                      // chuyen doi giua hai vector v va v1
 ```
-- insert(): Hàm này chèn các phần tử mới vào trước phần tử trước vị trí được trỏ bởi vòng lặp. Chúng ta cũng có thể chuyển một số đối số thứ ba, đếm số lần phần tử được chèn vào trước vị trí được trỏ.
+- ***insert()***: Hàm này chèn các phần tử mới vào trước phần tử trước vị trí được trỏ bởi vòng lặp. Chúng ta cũng có thể chuyển một số đối số thứ ba, đếm số lần phần tử được chèn vào trước vị trí được trỏ.
 ```c++
 vector<int> v = {1,7,4};
 
