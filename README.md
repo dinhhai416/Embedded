@@ -3084,7 +3084,7 @@ Chú ý rằng trong tiêu chuẩn AUTOSAR C++ Coding Guidelines, việc đặt 
 <!-- ------------------------------------------------------------------------------------------------------------------------ -->
 
 <details>
-<summary><h3>EMBEDDED AUTOMOTIVE</h3></summary>
+<summary><h3>EMBEDDED</h3></summary>
 
 <details> 
 <summary><h4>SPI</h4></summary>
