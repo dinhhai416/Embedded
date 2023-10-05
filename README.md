@@ -1530,43 +1530,1544 @@ tao ra "file .o" chung
 <summary><h3>C++ PROGRAMMING LANGUAGE</h3></summary>
 
 <details> 
-<summary><h4>AUTOSAR C++ CODING GUIDE</h4></summary>
+<summary><h4>C++ BASIC</h4></summary>
+
+#### 1. Library
+**iostream** là viết tắt của từ Input/Output Stream là một thư viện chuẩn của C++ cho phép bạn nhận Input từ màn hình Console và xuất Output ngược lại ra màn hình Console qua các câu lệnh nhập xuất như cin, cout, ..
+
+#### 2. Cout
+
+**Cout** là một đối tượng được xác định trước của lớp ostream. Nó được kết nối với thiết bị đầu ra tiêu chuẩn, thường là màn hình hiển thị. Cout được sử dụng kết hợp với toán tử (<<) để hiển thị đầu ra trên console.
+
+```C++
+#include <iostream>
+ 
+using namespace std;
+ 
+int main() {
+    char charArr[] = "Welcome to C++ tut!";  
+    cout << "Value of charArr is: " << charArr << endl;  
+}
+```
+#### 3. Cin
+
+**cin** là một đối tượng được xác định trước của lớp istream. Nó được kết nối với thiết bị đầu vào tiêu chuẩn, mà thường là một bàn phím. Cin được sử dụng cùng với toán tử (>>) để đọc đầu vào từ console.
+```C++
+#include <iostream>
+ 
+using namespace std;
+ 
+int main() {
+    int age; 
+    cout << "Enter your age: ";
+    cin >> age;
+    cout << "Your age is: " << age << endl;
+}
+```
+### Endl
+
+**endl** là một đối tượng được xác định trước của lớp ostream. Nó được sử dụng để chèn một ký tự xuống dòng.
+```C
+#include <iostream>
+ 
+using namespace std;
+ 
+int main() {
+    cout << "Learn";
+    cout << " C++"<< endl;
+    cout << "New line" << endl;
+}
+```
 </details>
 
 <details> 
 <summary><h4>CLASS</h4></summary>
+
+#### 1. Class?
+
+- Class là một cấu trúc dữ liệu tự định nghĩa, nó cho phép lập trình viên tạo ra các đối tượng (**objects**) mới có cùng bản chất.
+
+- Class định nghĩa các thuộc tính data members còn gọi là **property** và phương thức member functions còn gọi là **method** mà các đối tượng của nó có thể sử dụng.
+- Trong C++, từ khóa class sẽ chỉ điểm bắt đầu của một class sẽ được cài đặt. Class trong C++ giúp tổ chức mã nguồn một cách có cấu trúc và tái sử dụng, đồng thời cho phép ẩn thông tin và triển khai tính kế thừa, đa hình và đóng gói.
+
+**Phạm vi truy cập (Access modifiers):**
+Access modifier là phạm vi truy cập của các thuộc tính và phương thức sẽ được khai báo bên dưới nó. Có 3 phạm vi truy cập trong C++ là public, private và protected.
+
+- **Public**: Các member được khai báo trong Public thì các Object có thể truy cập trực tiếp tới được. Và các User có thể sử dụng và thay đổi các giá trị trong các member này
+- **Private**: Được sử dụng khi bạn muốn chặn User truy cập vào những member khai báo trong phạm vi này, giới hạn truy cập và sửa đổi giá trị của chúng. Sử dụng các member trong Public để truy cập đến các member trong Private.
+- **Protected**: Tương tự như Private, nhưng Private thì các class con không thể kết thừa được các member trong Private của class chính, còn Protected thì lại cho phép các class con có thể kế thừa được các member trong protected của class chính.
+
+#### 2. Cách truy cập vào các member của class:
+
+**EXAMPLE 1:** Kháo báo CLASS với các property
+
+```c++
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+class SinhVien{
+
+    public:
+        int MSSV;         // property
+        string TEN;        // property
+        string LOP;       // property
+        int NAM_LINH;      // property
+};
+
+int main(int argc, char const *argv[])
+{
+    
+
+    SinhVien sv;              // Class: SinhVien        // Object : sv
+
+    sv.MSSV = 10012;           // Truy cập từng member trong Class
+    sv.TEN  = "Hoang";
+    sv.LOP  = "OTO12";
+    sv.NAM_LINH = 2001;
+
+    cout << "MSSV: " << sv.MSSV <<endl;
+    cout << "TEN :"  << sv.TEN <<endl ;
+    cout << "LOP: " << sv.LOP <<endl;
+    cout << "NAM_LINH: " << sv.NAM_LINH <<endl;
+
+    return 0;
+}
+```
+
+**EXAMPLE 2**: CLASS với các property và kiểu phương thức truy cập vào các thuộc tính 
+
+```c++
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+class SinhVien{
+
+    public:
+        int MSSV;     // property
+        string TEN;    // property
+        string LOP;     // property
+        int NAM_LINH;    // property
+};
+
+void display(SinhVien sv){
+
+    cout << "MSSV: " << sv.MSSV <<endl;               
+    cout << "TEN :"  << sv.TEN <<endl ;
+    cout << "LOP: " << sv.LOP <<endl;
+    cout << "NAM_LINH: " << sv.NAM_LINH <<endl;
+}
+
+int main(int argc, char const *argv[])
+{
+    
+    SinhVien sv1;             // Class: SinhVien        // Object : sv1
+
+    sv1.MSSV = 10012;            // Truy cập từng property trong Class
+    sv1.TEN  = "Hoang";
+    sv1.LOP  = "OTO12";
+    sv1.NAM_LINH = 2001;
+
+    SinhVien sv2 = {12367,"Thang","CDT15",1999};         // Class: SinhVien        // Object :sv2
+
+    display(sv1);
+
+    printf("-------------\n");
+
+    display(sv2);
+
+    return 0;
+}
+
+```
+**EXAMPLE 3:** Dùng Class gồm các property với method
+```c++
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+class SinhVien{
+    public:
+          int MSSV;           // property
+          string TEN;        // property
+          string LOP;        // property
+          int NAM_LINH;     // property
+          int TUOI(){       // method
+              return 2023 - NAM_LINH;
+          }
+
+};
+void display(SinhVien sv){
+
+    cout << "MSSV: " << sv.MSSV <<endl;      // Truy cập từng property trong Class
+    cout << "TEN :"  << sv.TEN <<endl ;
+    cout << "LOP: " << sv.LOP <<endl;
+    cout << "NAM_LINH: " << sv.NAM_LINH <<endl;
+    cout << "TUOI: " << sv.TUOI() <<endl;
+}
+
+int main(int argc, char const *argv[])
+{
+    
+    SinhVien sv1;
+
+    sv1.MSSV = 10012;
+    sv1.TEN  = "Hoang";
+    sv1.LOP  = "OTO12";
+    sv1.NAM_LINH = 2001;
+
+    SinhVien sv2 = {12367,"Thang","CDT15",1999};
+
+    display(sv1);
+
+    printf("-------------\n");
+
+    display(sv2);
+
+    return 0;
+}
+```
+ **EXAMPLE 4:** Dùng Constructor không có input parameter.
+- Khi Object `sv1` or `sv2` được khai báo Class thì hai object sẽ tự động vào `Constructor: Sinh viên` để thực hiện và sau đó mới khởi tạo các `Property` sau đó.
+- Các Property có thể như là các biến toàn cục và `Method`, `Constructor` coi như là các Function, CodeBlock như trong C.
+- 
+ ```c++
+  #include<iostream>
+  #include<string>
+
+  using namespace std;
+
+  class SinhVien{
+
+      public:
+          SinhVien(){                      // Constructors not the input paramaters;
+              static int id = 1000;        // declare id with the key "static" will free memory id when the end of program
+              MSSV = id;
+              id++;
+          }
+          int MSSV;           // property
+          string TEN;        // property
+          string LOP;        // property
+          int NAM_LINH;     // property
+          int TUOI(){       // method
+              return 2023 - NAM_LINH;
+          }
+
+  };
+
+  void display(SinhVien sv){
+
+      cout << "MSSV: " << sv.MSSV <<endl;
+      cout << "TEN :"  << sv.TEN <<endl ;
+      cout << "LOP: " << sv.LOP <<endl;
+      cout << "NAM_LINH: " << sv.NAM_LINH <<endl;
+      cout << "TUOI: " << sv.TUOI() <<endl;
+  }
+
+  int main(int argc, char const *argv[])
+  {
+      
+      SinhVien sv1;
+
+      sv1.TEN  = "Hoang";
+      sv1.LOP  = "OTO12";
+      sv1.NAM_LINH = 2001;
+
+      SinhVien sv2;
+
+      sv2.TEN  = "Trung";
+      sv2.LOP  = "CDT53";
+      sv2.NAM_LINH = 1999;
+
+      display(sv1);
+
+      printf("-------------\n");
+
+      display(sv2);
+
+      return 0;
+  }
+ ```
+
+ **EXAMPLE 5:** Dùng Constructor có input parameter.
+
+ - Khi khai báo object mà có contructor với input parameter thì dùng cú pháp: 
+  ```c++
+    SinhVien sv1("Hoang",2001,"CDT56");    
+  ```
+
+ ```c++
+  #include<iostream>
+  #include<string>
+
+  using namespace std;
+
+  class SinhVien{
+
+      public:
+          SinhVien(string ten,int nam_sinh, string lop){           // Constructors with the input paramaters;
+              TEN = ten;
+              LOP = lop;
+              NAM_LINH = nam_sinh;                                                               
+              static int id = 1000;                              // declare id with the key "static" will free memory id when the end of program
+              MSSV = id;
+              id++;
+          }
+          int MSSV;           // property
+          string TEN;        // property
+          string LOP;        // property
+          int NAM_LINH;     // property
+          int TUOI(){       // method
+              return 2023 - NAM_LINH;
+          }
+
+  };
+
+  void display(SinhVien sv){
+
+      cout << "MSSV: " << sv.MSSV <<endl;
+      cout << "TEN :"  << sv.TEN <<endl ;
+      cout << "LOP: " << sv.LOP <<endl;
+      cout << "NAM_LINH: " << sv.NAM_LINH <<endl;
+      cout << "TUOI: " << sv.TUOI() <<endl;
+  }
+
+  int main(int argc, char const *argv[])
+  {
+      
+      SinhVien sv1("Hoang",2001,"CDT56");
+
+      SinhVien sv2("Trung",1998,"KHMT12");
+
+      display(sv1);
+
+      printf("-------------\n");
+
+      display(sv2);
+
+      return 0;
+  }
+ ```
+
+ **EXAMPLE 6:**  Sử dụng hai function test1() va test2() đề kiếm tra id(khai báo static).
+
+ ```cpp
+    #include<iostream>
+    #include<string>
+
+    using namespace std;
+
+    class SinhVien{
+
+        public:
+            SinhVien(string ten,int nam_sinh, string lop){                       // Constructors with the input paramaters;
+                TEN = ten;
+                LOP = lop;
+                NAM_LINH = nam_sinh;                                                               
+                static int id = 1000;                                           // declare id with the key "static" will free memory id when the end of program
+                MSSV = id;
+                id++;
+            }
+            int MSSV;           // property
+            string TEN;        // property
+            string LOP;        // property
+            int NAM_LINH;     // property
+            void display(){           //method
+                cout << "MSSV: " << MSSV <<endl;
+                cout << "TEN :"  << TEN <<endl ;
+                cout << "LOP: " << LOP <<endl;
+                cout << "NAM_LINH: " << NAM_LINH <<endl;
+                cout << "TUOI: " << 2023 - NAM_LINH <<endl;
+            }
+
+    };
+
+    void test1(){
+
+          SinhVien sv1("Hoang",2001,"CDT50");
+          SinhVien sv2("Kiet",1999,"KHMT20");
+          sv1.display();
+          sv2.display();
+    }
+
+    void test2(){
+
+          SinhVien sv1("Hoang",2001,"CDT50");
+          SinhVien sv2("Kiet",1999,"KHMT20");
+          sv1.display();
+          sv2.display();
+    }
+
+    int main(int argc, char const *argv[])
+    {
+        test1();
+        printf("----------\n");
+        test2();
+
+        return 0;
+    }
+ ```
+ **EXAMPLE 7:** Cách hoạt động `Destructor` trong CLASS 
+- `Destructor` sẽ được dùng trước khi mà ta thu hồi bộ nhớ của Object.
+- Khi chương trình thực hiện mà chuyển đến hàm được gọi `test1()` thì lúc này `Object: sv1` sẽ khởi tạo Class trước và thực hiện: khởi tạo các property, constructor, method. Sau đó thì `Object: sv2 ` mới được khởi Class. Sau khi function/CodeBlock test1() kết thúc thì trước khi thu hồi thì sẽ thực hiện `Destructor` trong Class.
+- Do `hai Object sv1 và sv2 ` đều là Object cục bộ phần vùng Stack trong Ram nên `Object sv2` sẽ xếp trên `Object sv1` do khai báo Class sau. Do đó, `Object sv2` trước khi bị thu hồi sẽ thực hiện `Destructor` bên trong Class trước. Sau đó, thì `Object sv1` thì sẽ thực hiện `Destructor` trong Class trước khi bị thu hồi vùng nhớ ở Stack. 
+
+ ```c++
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+class SinhVien{
+
+    public:
+        SinhVien(string ten,int nam_sinh, string lop){                       // Constructors with the input paramaters;
+            TEN = ten;
+            LOP = lop;
+            NAM_LINH = nam_sinh;                                                               
+            static int id = 1000;                                           // declare id with the key "static" will free memory id when the end of program
+            MSSV = id;
+            id++;
+        }
+        ~SinhVien(){                                                      //Destructor : pha huy
+            
+            cout <<"THOAT TEN "<< TEN << endl;
+            *ptr = 1000;                     // Thay đổi giá trị tại địa chỉ của id.
+        }
+        int *ptr;
+        int MSSV;           // property
+        string TEN;        // property
+        string LOP;        // property
+        int NAM_LINH;     // property
+        void display(){           //method
+            cout << "MSSV: " << MSSV <<endl;
+            cout << "TEN :"  << TEN <<endl ;
+            cout << "LOP: " << LOP <<endl;
+            cout << "NAM_LINH: " << NAM_LINH <<endl;
+            cout << "TUOI: " << 2023 - NAM_LINH <<endl;
+        }
+
+};
+
+void test1(){
+
+       SinhVien sv1("Hoang",2001,"CDT50");
+       SinhVien sv2("Kiet",1999,"KHMT20");
+       sv1.display();
+       sv2.display();
+}
+
+void test2(){
+
+       SinhVien sv1("Hoang",2001,"CDT50");
+       SinhVien sv2("Kiet",1999,"KHMT20");
+       sv1.display();
+       sv2.display();
+}
+
+int main(int argc, char const *argv[])
+{
+    test1();
+    printf("----------\n");
+    //test2();
+
+    return 0;
+}
+
+ ```
+
+ #### 3. Static and scope in class:
+
+ **EXAMPLE 1:** Scope public.
+
+```c++
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+class SinhVien{
+    public:
+          static int MSSV;
+          string TEN;
+          string LOP;
+};
+
+int SinhVien::MSSV;             // khởi tạo ban đầu đề có địa chỉ vì dùng static
+
+int main(int argc, char const *argv[])
+{
+    SinhVien sv1,sv2;
+
+    printf("Dia chi sv1: %p\n", &(sv1.MSSV));
+    printf("Dia chi sv2: %p\n", &(sv2.MSSV));
+
+    printf("Dia chi sv1: %p\n", &(sv1.TEN));
+    printf("Dia chi sv2: %p\n", &(sv2.TEN));
+
+
+    return 0;
+}
+
+```
+- Khi ta khai báo `static property of member` trong Class thì ta cần phải khởi tạo `property or member` đó trước bằng cú pháp :`int SinhVien::MSSV;`
+-  Tại vì các `Object` khi truy cập vào `static member` thì các object sẽ cùng truy cập vào chung một địa chỉ của`Static member`. Còn các member không khái báo static thì sẽ có địa chỉ khác nhau tương ứng với các Object khác nhau. Tại vì `static member` nó chỉ bị thu hồi vùng nhớ khi kết thúc vòng đời của chương trình.
+
+**EXAPLE 2:** Tạo ra Library của SinhVien
+- Class là kiểu dữ liệu do lập trình viên định nghĩa vậy nên nó chỉ là form, kiểu dữ liệu. Để tạo một thư viện thì cần hai file: .cpp và .hpp .
+- Trong FILE `file .hpp` thì sẽ khai báo, khởi tạo hay chứa tên, label của các function, khởi tạo các biến. Nó chỉ có tác dụng định nghĩa. Chứa các câu lệnh xét điều kiện Macro.
+- Còn trong FILE `file.cpp` thì sẽ triển khai, chứa nội dung các câu lệnh của các Function đó và sẽ khởi tạo cho `static member` ban đầu nếu có.
+
+*FILE: SinhVien.hpp*
+```c++
+#ifndef   _SinhVien_H
+#define   _SinhVien_H
+
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+class SinhVien{
+    public:
+         SinhVien(string ten, int tuoi);     // Instructor
+         string TEN;                         // Property
+         int TUOI;                           // Property
+         static int ID;                      // Property
+         void Display();                     // Method
+};
+
+#endif // _SinhVien_H INCLUDED
+
+```
+
+*FILE: SinhVien.cpp*
+```c++
+#include"SinhVien.hpp"
+
+SinhVien::SinhVien(string ten, int tuoi){     // Khởi tạo function/method của class SinhVien
+
+       TEN = ten;
+       TUOI = tuoi;
+       ID = 10;
+}
+
+void SinhVien::Display(){                  // Khởi tạo function/method của class SinhVien
+
+     cout << "TEN: " <<TEN <<endl;
+     cout << "TUOI: " <<TUOI <<endl;
+    
+}
+
+int SinhVien::ID;  // khởi tạo ban đầu đề có địa chỉ vì dùng static
+
+
+File: main.cpp
+
+#include"SinhVien.hpp"
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+
+    
+    SinhVien sv("Hoang",2001);
+
+    SinhVien sv1("Tuan", 2005);
+
+    //sv.Display();
+
+    sv.ID = 40;
+
+    sv1.ID = 80;
+
+    //sv.ID = 0;
+
+    cout<< "ID: "<<sv.ID<<endl;
+
+    printf("Dia chi cua sv: \t%p \n", &(sv.ID));
+
+    printf("Dia chi cua sv1: \t%p\n", &(sv1.ID));
+
+    printf("Dia chi cua sv: \t%p \n", &(sv.TEN));
+
+    printf("Dia chi cua sv1: \t%p\n", &(sv1.TEN));
+
+    return 0;
+}
+
+```
+
+
+**EXAMPLE 3:** Scope private.
+```c++
+class SinhVien{
+    public:
+        SinhVien(string ten, int tuoi); 
+        void Display();  
+    private:
+         string TEN;                         
+         int TUOI;                           
+         int ID;                                        
+};
+```
+- Đối với phạm vi `public` thì member bên trong đó sẽ được các `Object`, `Class kế thứa` tuý ý truy cập và trỏ đến sử dụng, bổ sung.
+- Còn đối với `private` nếu như các member có cùng `Class SinhVien` nên các member trong `private` chỉ được truy cập bởi các member cùng `Class SinhVien` truy cập và trỏ đến. Còn các `Object và Class kế thừa`thì không được truy cập đến được `phạm vi private`. Có nghĩa là các member trong Class thì sẽ có quyền truy cập đến `phạm vi private`. Cho dù ta có include thư viện vào file khác thì ta chỉ có thể truy cập vào phạm vi `public`.
+- Việc việc dùng `private` nhằm tránh cho người dùng truy cập các member bên trong private để thay đổi giá trị và chỉ cho phép người dùng truy cập vào phạm vi public. Nó khá giống với `static bên C Advance`.
+  
+**Example 4:** Scope protected.
+
+*FILE: .hpp* 
+```c++
+class SinhVien{
+    public:
+        void SetInformation1(string ten, int tuoi); 
+        void Display1();  
+    protected:
+        string TEN;                         
+        int TUOI;                           
+                                       
+};
+
+class HocSinh : public SinhVien{             // Cấu trúc kế thừa Class
+    public:
+        void SetInformation(string ten, int tuoi, int mssv); 
+        void Display();  
+        int MSSV;
+
+};
+```
+*FILE: .cpp*
+```c++
+#include"SinhVien.hpp"
+
+void SinhVien::SetInformation1(string ten, int tuoi){       // Khởi tạo function/method của class SinhVien
+
+       TEN = ten;
+       TUOI = tuoi;
+}
+void SinhVien::Display1(){                            // Khởi tạo function/method của class SinhVien
+      
+     cout << "TEN: " <<TEN <<endl;
+     cout << "TUOI: " <<TUOI <<endl;
+    
+}
+
+void HocSinh::SetInformation(string ten, int tuoi, int mssv){    // Khởi tạo function/method của class Hocsinh
+    TEN  = ten;
+    TUOI = tuoi;
+    MSSV = mssv;
+}
+void HocSinh :: Display(){                        // Khởi tạo function/method của class Hocsinh
+    cout << "TEN: " <<TEN <<endl;
+    cout << "TUOI: " <<TUOI <<endl;
+    cout << "MSSV: " << MSSV <<endl;
+}
+
+```
+- Đối với phạm vi `protected` thì các`Object` không thể truy cập đến các member trong phạm vi này nhưng mà `Class kế thừa` thì có khả năng truy cập vào các member trong phạm vi `protected`. Cho dù ta có include thư viện thì các `Object` không thể truy cập vào phạm vi này.
+- Phạm vi này có tác dụng cho người dùng có thể kế thừa `Class trước đó` và phát triển thêm tính năng cho `Class sau` mà vẫn truy cập được các member trong Class trước đó.
+- Ngoài đó, để kế thừa `Class trước đó` thì ta sử dụng cấu trúc: `class HocSinh : public SinhVien`
+- Khi khai báo Object ở `Class Hocsinh` thì ta có thể truy cập các member trong phạm vi public của Class khác và cả Class của nó. Nhưng phạm vị `private và protected` thì không thể truy cập được.
+- Bởi vì do tính kế thừa nên tên của các member của `Class kế thừa` có thể khác tên so với Class trước đó.
+
+#### 4. Các lưu ý quan trọng:
+
+**CHÚ Ý 1:** Các member ở private scope có thể truy cập vào protected scope, public scope và ngược lại các member ở protected scope có thể truy cập vào private scope, public scope. Vì thực chất các member đều cùng chung phạm vi CLASS.
+
+```c++
+FILE thư viện : .hpp
+class SinhVien{
+    public:
+        void SetInformation1(string ten, int tuoi); 
+        void Display1();  
+        static int ID; 
+    private:
+        int NAM_SINH;
+        void display1();
+        static int CMND;      // khai báo static trong private cũng phải khởi tạo đầu tiên cho member:
+    protected:
+        string TEN;                         
+        int TUOI;   
+        void display2();                                                            
+};
+
+
+FILE thư viện: .cpp
+
+void SinhVien::SetInformation1(string ten, int tuoi){
+
+       TEN = ten;             // Các Member ở public có thể truy cập vào phạm vi: private và protected
+       TUOI = tuoi;
+       NAM_SINH = 2001;                              
+       ID =60;
+       CMND= 30;
+}
+void SinhVien::Display1(){    // Các Member ở public có thể truy cập vào phạm vi: private và protected
+
+     cout << "TEN: " <<TEN <<endl;
+     cout << "TUOI: " <<TUOI <<endl;
+     ID=900;
+     display1();
+     display2();
+
+}
+
+int SinhVien :: ID =10;
+
+int SinhVien::CMND;   
+
+void SinhVien::display1(){                   // khai báo method ở class SinhVien phạm vi: private
+    cout<<"Nhap TEN: "<< TEN <<endl;
+    cout<<"Nhap TUOI: "<<TUOI << endl;
+}
+
+void SinhVien::display2(){                   // khai báo method ở class SinhVien phạm vi: protected
+    cout<<"Nhap NAM_SINH: "<< NAM_SINH<< endl;
+    cout << "ID: " <<ID <<endl;
+    CMND = 800;                              // Các Member ở protected có thể truy cập vào phạm vi private 
+    cout<<"Nhap CMND: "<<CMND<< endl;
+}
+
+```
+
+**Chú ý 2:**  Ở CLASS kế thừa Hocsinh thì các member ở phạm vi private có thể truy cập ở phạm vi public(HocSinh),protected(HocSinh) và có thể truy cập vào phạm vi public(SinhVien), protected(SinhVien) của CLASS SinhVien.
+
+```c++
+FILE thư viện: .hpp
+
+class SinhVien{
+    public:
+        void SetInformation1(string ten, int tuoi); 
+        void Display1();  
+        static int ID; 
+    private:
+        int NAM_SINH;
+        void display1();
+        static int CMND;
+    protected:
+        string TEN;                         
+        int TUOI;   
+        void display2();                       
+                                       
+};
+
+class HocSinh : public SinhVien{                    // CLASS Kế Thừa
+    public:
+        void SetInformation(string ten, int tuoi, int mssv); 
+        void Display();  
+        int MSSV;
+    private:
+         void Print();
+};
+
+FILE thư viện: .cpp
+
+void HocSinh::Print(){
+
+    cout<<"MSSV HOC SINH: "<< MSSV<<endl;
+    ID = 812;
+    printf("------\n");
+    display2();
+    printf("------\n");
+    Display1();
+}
+
+```
 </details>
 
 <details> 
 <summary><h4>OOP</h4></summary>
+
+#### 1. Tính kế thừa (Inheritance):
+
+
+- CLASS SinhVien dùng tính chất kế thừa của Class DoiTuong. Vậy khi ta khai báo Object kiểu Class SinhVien thì nó sẽ kế thừa các đặc tính của Class DoiTuong ở phạm vi public(các member). Ngoài ra, các member trong Class SinhVien cũng có thể kế thừa các đặc tính các member trong phạm vi public và protected.
+- Trong tính chất kế thừa còn có tính chất ghi đè giúp cho Method trong Class kế thừa(SubClass) có quyền ghi đè thêm tính chất của method trong SuperClass.
+- `This` là 1 pointer của Class dữ liệu và sẽ trỏ đến các member mà nó có thể trỏ đến.
+
+**EXAMPLE 1:**  Tính chất kế thừa theo kiểu public.
+```c++
+class DoiTuong{
+    protected:
+            string TEN;
+            int TUOI;
+    public:
+            void SetInformation(string ten, int tuoi);
+            void Display();
+
+};
+
+void DoiTuong :: SetInformation(string ten, int tuoi){
+    this->TEN = ten;
+    this->TUOI = tuoi;
+}
+void DoiTuong :: Display(){
+    cout<<"Ten: "<<TEN<<endl;
+    cout<<"Tuoi: "<<TUOI<<endl;
+}
+
+class SinhVien : public DoiTuong{      // Kế thừa theo kiểu Public
+    private:
+            int MSSV;
+    public:
+            void SetInformation(string ten, int tuoi, int mssv);    // Kieu or phuong phap ghi de trong tinh ke thua cua OOP
+            void Display();
+    
+};
+
+void SinhVien::SetInformation(string ten, int tuoi, int mssv){
+
+    this->TEN = ten;
+    this->TUOI = tuoi;
+    this->MSSV = mssv;
+
+}
+
+ void SinhVien:: Display(){
+
+    cout<<"Ten: "<<TEN<<endl;
+    cout<<"Tuoi: "<<TUOI<<endl;
+    cout<<"MSSV: "<<MSSV<<endl;
+
+ }
+
+ int main(int argc, char const *argv[])
+{
+  
+    SinhVien sv;
+
+    sv.SetInformation("Hoang", 45, 191765);
+     
+    sv.Display();
+
+    return 0;
+}
+```
+**EXAMPLE 2:** Tính kế thừa theo kiểu protected:
+- Vì Class SinhVien kế thừa Class DoiTuong theo kiểu protected. Vậy nên những member ở phạm vi public và protected của Class DoiTuong sang Class SinhVien sẽ đều sẽ trở thành các member ở phạm vi protected của Class SinhVien.
+- Do đó, khi khởi tạo Object theo Class SinhVien thì ta k thể truy cập đến các member của Class DoiTuong.
+- Dù kế thừa theo kiểu protected nhưng ta vãn có thể sử dụng tính cất ghi đè.
+
+```c++
+class DoiTuong{
+    protected:
+            string TEN;
+            int TUOI;
+    public:
+            void SetInformation(string ten, int tuoi);
+            void Display();
+
+};
+
+class SinhVien : protected DoiTuong{
+    private:
+            int MSSV;
+    public:
+            void SetInformation1(string ten, int tuoi, int mssv);    // Kieu or phuong phap ghi de trong tinh ke thua cua OOP
+            void Display1();
+    
+};
+
+int main(int argc, char const *argv[])
+{
+  
+    SinhVien sv;
+
+    sv.SetInformation1("Hoang", 45, 191765);
+     
+    sv.Display1();
+
+
+    return 0;
+}
+
+```
+
+**EXAMPLE 3:** Tính chất kế thừa theo kiểu Private:
+- Khi Class SinhVien kế thừa theo kiểu Private của Class DoiTuong. Vậy nên các member ở phạm vi public và protected ở Class DoiTuong khi sang Class SinhVien thì các member đó sẽ ở phạm vi Private của SinhVien.
+- Do đó khi khởi tạo Object kiểu Class SinhVien thì Object không có quyền truy cập đến các member ở phạm vi Private.
+  
+```c++
+class DoiTuong{
+    protected:
+            string TEN;
+            int TUOI;
+    public:
+            void SetInformation(string ten, int tuoi);
+            void Display();
+
+};
+
+class SinhVien : private DoiTuong{
+    private:
+            int MSSV;
+    public:
+            void SetInformation1(string ten, int tuoi, int mssv);    // Kieu or phuong phap ghi de trong tinh ke thua cua OOP
+            void Display1();
+    
+};
+
+int main(int argc, char const *argv[])
+{
+  
+    SinhVien sv;
+
+    sv.SetInformation("Hoang", 45, 191765);
+     
+    //sv.Display();           // khong kế thừa được vì ở private SinhVien
+
+
+    return 0;
+}
+``` 
+#### 2. Tính đa hình(Polymorphism):
+
+- Trong Class khi khai báo method mà tên các method trùng nhau nhưng có input parametres khác nhau (về số lượng, kiểu dữ liệu từng agrument) thì nó có thể phân biệt được từng method và điều này khác với tính chất ngôn ngữ C.
+- Trong C++ nếu Tên các method trùng nhau cho dù method kiểu void hay int thì cũng không phân biệt được và chỉ có thể dựa vào input parameters.
+- Trong Class thì các method có thể có cùng label và dù khác kiểu dữ liệu trả về nhưng trong OOP của C++ nó sẽ phân biệt các method nhờ input paramaters của các method để phân biệt chức năng của các method khác nhau.
+  
+```c++
+class ToanHoc{
+    public:
+            void Tong(int a, int b){
+                cout<<"Tong a va b: " <<a+b<<endl;
+            }
+            void Tong(int a, int b, int c){
+                cout<<"Tong a, b va c: " <<a+b+c<<endl;
+            }
+            int Tong(int a, double b){      // method
+                return a+(int)b;
+            }
+ };
+
+
+int main(int argc, char const *argv[])
+{
+  
+   ToanHoc sv;
+
+    sv.Tong(8,9);
+     
+    sv.Tong(2,9,9);
+
+    cout<<"Tong a va b: "<<sv.Tong(5,14.6)<<endl;
+    
+
+    return 0;
+}
+
+```
+
+#### 3. Tính trừu tượng (Abstraction):
+- Tính trừu tượng trong C++ có thể hiểu: Khi ta thiết kế thư viện của một phương trình bậc hai thì ta chỉ cho phép người dùng được truy cập vào hàm nhập thông tin và trả kết quả. Còn các hàm xử lý, tính toán kết quả thì ta sẽ không cho người truy cập vào.
+- Do đó ở phạm vi public thì Object(Người dùng) có thể truy cập và trỏ đến sử dụng các method ở phạm vi này. Còn ở phạm vi private và protected thì Object(người dùng ) không có quyền truy cập vào. Đây cũng là tính chất khi mà ta thiết kế thư viện.
+- Tính trừu tượng này khá giống với khai báo static bên C khi thiết kế thư viện. Bên C khi ta khái báo static một function hay biến trong file cụ thê thì ta chỉ dùng private các function trong file đó. Cho dù ta include các file header vào các file .c khác thì ta cũng không thể truy cập đền các function static đó. Điều này khiến cho người dùng không cần quan tâm đến các function xử lý, bên trong đó mà chỉ quan tâm đến **input và result**. 
+
+```c++
+class TinhToan{
+   public:
+          void setData();
+          void result();
+   private:
+          int Detal();
+}
+```
+
+#### 4. Tính đóng gói (Encapsulation):
+- Object không được truy cập trực tiếp đến member phạm vi private, protected để gán các giá trị trực tiếp cho nó. Mà cần phải gán giá trị cho các propety thông qua nhờ các method ở phạm vi public. Điều này phức tạp mà đảm bảo tính đồng bộ và chính xác khi thiết kế thư viện.
+- Điều này giúp Object hay người dùng không được truy cập vào các member ở private và protected để thay đổi giá trị. Mà cần phải qua các method ở public để xử lý các trường hợp nhập data sai từ Object(người dùng) và sẽ nhận các giá trị đúng thông qua method đã được xử lý ở public chco các property.
+- Trong OOP thì tính đóng gói(Encapsulation) có ý nghĩa là người dùng không thể sử đụng Object tuy cập trực tiếp vào các member để thay đổi giá trị và trạng thái nội của nó. Ta chỉ có thể thông qua dùng method tại Object để thay đổi các giá trị và trạng thái nội.
+```c++
+class TinhToan{
+   public:
+          void setData(int ten){
+            TEN=ten;
+          };
+
+          int getData(){
+            return TEN;
+          }
+   private:
+          int TEN;
+          int tuoi;
+}
+```
 </details>
 
 <details> 
 <summary><h4>VECTOR</h4></summary>
+
+#### 1.VECTOR?
+
+- Giống Array bên C  và vector trong C++ là một đối tượng dùng để chứa các đối tượng khác, và các đối tượng được chứa này cũng được lưu trữ một cách liên tiếp trong vector. 
+- Tuy nhiên, Ở trong Array thì số lượng phần tử (size) của một mảng là cố định, còn ở vector thì ta  hoàn toàn có thể thay đổi trong suốt quá trình làm việc của chương trình.
+
+**Example:**
+
+```c++
+#include<iostream>
+#include<vector>
+
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+    vector<int> v = {1,7,4};
+
+    v[2]=9;
+
+    for (uint8_t i = 0; i < v.size(); i++)
+    {
+        cout<<" "<< v[i];
+    }
+    
+    return 0;
+}
+////
+
+ for (int x : v)                    // for cai tien
+    {
+        cout<<" "<< x;
+    }
+/////
+
+ for (uint8_t i = 0; i < v.size(); i++)
+    {
+        cout<<" "<< v.at(i);
+    }
+
+```
+- push_back(): Hàm đẩy một phần tử vào vị trí sau cùng của vector. Nếu kiểu của đối tượng được truyền dưới dạng tham số trong push_back() không giống với kiểu của vector thì sẽ bị ném ra.
+- emplace_back(): Nó được sử dụng để chèn một phần tử mới vào vùng chứa vector, phần tử mới sẽ được thêm vào cuối vector.
+- emplace(): Nó mở rộng vùng chứa bằng cách chèn phần tử mới vào
+
+```c++
+ vector<int> v = {1,7,4};
+
+    v.push_back(3);
+    v.emplace_back(7);
+```
+- assign(): Nó gán một giá trị mới cho các phần tử vector bằng cách thay thế các giá trị cũ.
+- pop_back(): Hàm pop_back () được sử dụng để xóa đi phần tử cuối cùng một vector.
+- clear(): Hàm được sử dụng để loại bỏ tất cả các phần tử của vùng chứa vector.
+```c++
+vector<int> v = {1,7,4};
+
+    v.pop_back();
+
+    v.assign(8,5);
+
+vector<int> v = {1,7,4};
+
+    v.clear();
+```
+```c++
+    vector<int> v1 = {1, 2, 3, 4, 5};
+    vector<int> v2;
+
+    v2.assign(v1.begin() + 1, v1.end() - 1); // Gán phần tử từ v1[1] đến v1[3] vào v2
+
+    for (int num : v2) {
+        cout << num << " "; // Output: 2 3 4
+    }
+```
+-  swap(): Hàm được sử dụng để hoán đổi nội dung của một vector này với một 
+vector khác cùng kiểu. Kích thước có thể khác nhau.
+
+```c++
+ vector<int> v = {1,7,4,8,3};
+
+    vector<int> v1={7,9,4,2};
+
+    v.swap(v1);                      // chuyen doi giua hai vector v va v1
+```
+- insert(): Hàm này chèn các phần tử mới vào trước phần tử trước vị trí được trỏ bởi vòng lặp. Chúng ta cũng có thể chuyển một số đối số thứ ba, đếm số lần phần tử được chèn vào trước vị trí được trỏ.
+```c++
+vector<int> v = {1,7,4};
+
+    v.insert(v.begin() + 1 ,7);
+```
+-  erase(): Hàm được sử dụng để xóa các phần tử tùy theo vị trí vùng chứa.
+```c++
+ vector<int> v = {1,7,4};
+
+    //v.insert(v.begin() + 1 ,7);
+    v.erase(v.begin()+1);
+```
+```c++
+  vector<int> v = {1,7,4};
+
+        //v = {4,9,2,5};
+  vector<int> v2 = {10,5,7,3};
+
+    v = v2;
+```
+Tham tri(pass by value)
+```c++
+
+void Count(vector<int> v){
+
+    v.at(0)=10;
+
+}
+
+int main(int argc, char const *argv[])
+{
+    vector<int> v = {1,7,4};
+
+    Count(v);
+
+    for (uint8_t i = 0; i < v.size(); i++)
+    {
+        cout<<" "<< v.at(i);
+    }
+}
+```
+#### 2.Tham chiếu (Pass by reference)
+
+- Truyền tham chiếu chính là cách chúng ta truyền cho nó một bản gốc thông qua địa chỉ '&'. Đối với biến tham chiếu và biến được tham chiếu thì nó sẽ có cùng địa chỉ nhớ.
+- Tại vì do cùng địa chỉ nhớ nên ta có thể thay đổi giá trị của vector hoặc biến thông qua biến tham chiếu.
+
+```c++
+void Count(vector<int> &v){
+
+    v.at(0)=10;
+
+}
+
+int main(int argc, char const *argv[])
+{
+    vector<int> v = {1,7,4};
+
+    Count(v);
+
+    for (uint8_t i = 0; i < v.size(); i++)
+    {
+        cout<<" "<< v.at(i);
+    }
+    
+    return 0;
+}
+
+```
+#### 3.Tham trị (Pass by value)
+
+Truyền tham trị là truyền cho đối số một bản sao.
+
+- Đối với việc truyền bằng tham trị thì cái biến truyền và được truyền thì sẽ có địa chỉ khác nhau trên Ram.
+- Vậy nên khi ta thay đổi giá trị của biến tham chiếu và bị tham chiếu thì nó không bị ảnh hưởng.
+```c++
+```c++
+void Count(vector<int> &v){
+
+    v.at(0)=10;
+
+}
+
+```
+**NOTE:** Function có kiểu trả về là một kiểu dữ liệu vector interger.
+
+```c++
+vector<int> Count(){
+
+    vector<int> v={1,8,9};
+    return v;
+
+}
+
+int main(int argc, char const *argv[])
+{
+    vector<int> v = {1,7,4};
+
+    v = Count();
+
+    for (uint8_t i = 0; i < v.size(); i++)
+    {
+        cout<<" "<< v.at(i);
+    }
+    
+    return 0;
+}
+
+```
+
+
+
+#### 4. Iterator:
+
+```c++
+vector<int> v1 = {7,9,4,2}; //// v1[0] v1.at[5]: se khong kiem tra vi tri so 5 //v1.at(0) kiem tra vi tri khong co trong vector v1.at[5]
+
+ for (std:: vector<int>::iterator i = v1.begin(); i < v1.end(); i++)
+    {
+        std::cout<<*i<<std::endl;
+    }
+
+    for ( vector<int>::iterator i = v1.begin(); i != v1.end(); i++)
+    {
+        std::cout<<*i<<std::endl;
+    }
+    for ( auto i = v1.begin(); i != v1.end(); i++)    // vong for iterator
+    {
+        std::cout<<*i<<std::endl;
+    }
+    for( auto &i :: v1 ){             // vong for cai tien
+        std::cout<<i<<std::endl;
+    }
+     
+```
+**Chú ý:**
+- v1.begin() và v1.end() là các iterator trong C++ và pointer nên sẽ lưu giá trị là các địa chỉ vector.
+- v1.begin(): địa chỉ của object đầu tiền của vector.
+- v1.end(): địca chỉ tiếp theo của object sau đó.
+- i là pointer sẽ được khai báo theo kiểu dữ liệu vector<int>:: iterator.
+- Auto: từ khoá trong C++ sẽ có kiểu dữ liệu phụ thuộc vào biên i = v1.begin().
 </details>
 
 <details> 
 <summary><h4>TEMPLATE</h4></summary>
+
+```c++
+template <typename var , typename var2>
+
+var2 Add( var a, var2 b){
+
+    return var2(a+b);
+}
+
+int main(int argc, char const *argv[])
+{
+    std::cout<<"Add of a and b: "<<Add(4,4.5);
+    return 0;
+}
+
+```
+- Template là tính chất trong tính đa hình(Polyphosym) của OOP. Theo OOP, tính đa hình khi dùng class thì các method có thể cùng label và khác kiếu dữ liệu trả về từng method thì C++ sẽ không phân biệt được. Mà chỉ phân biệt được các method trong class dựa vào cá input parameter của chúng. Dùng từ khoá `template` để khai báo kiểu dữ liệu dựa vào input là gì.
+Example: Ta có hai function Add(int a, int b) và Add( double a, double b) thì hai method có input parameter khác nhau nhưng điều này khá bất tiện khi lập trình. chính vì vậy ta chì dùng `template <typename var>` thì var sẽ có kiểu dữ liệu dựa vào kiểu dữ liệu của số input.
+- Trong ví dụ trên thì var sẽ có kiểu dữ liệu interger dựa vào 4 và var2 có kiểu dữ liệu double dựa vào 4.5. Hàm add sẽ có kiểu trả về là var2(double).
+- Template (khuôn mẫu) là một từ khóa trong C++, và là một kiểu dữ liệu trừu 
+tượng tổng quát hóa cho các kiểu dữ liệu int, float, double, bool...
+- Template trong C++ có 2 loại đó là function template & class template.
+- Template giúp người lập trình định nghĩa tổng quát cho hàm và lớp thay vì 
+phải nạp chồng (overloading) cho từng hàm hay phương thức với những kiểu 
+dữ liệu khác nhau.
 </details>
 
 <details> 
 <summary><h4>NAME SPACE</h4></summary>
+
+```c++
+  #include<iostream>
+
+    namespace soilSensor{
+
+        int temperature = 40;
+    }
+
+    namespace airSensor{
+
+        int temperature = 70; 
+    }
+   // using namespace soilSensor;
+
+  std::cout<<temperature;
+  std::cout<< sv.pressure() <<std::endl;
+  std:: cout<< soilSensor :: temperature<<std::endl;
+
+
+```
+- Cùng là biến temperature nhưng nhưng nó sẽ thuộc ở các phạm vi namespace khác nhau. Chính vì vậy khi ta muốn gọi temperature từng phạm vi thì cần có câu lệnh`using namespace soilSensor`or `using namespace airSensor`.
+- Nếu như ta k dùng`using namspace std:` thì ta cần khai báo `std:: cout` và `std::endl`.
+- Trong file nên tránh hạn chế dùng cả `using namespace soilSensor`or `using namespace airSensor`.Chỉ có thể dùng nếu ta biết chắc chắn các member trong namespce soilSensor sẽ không có tên trùng với các member trong namspace khác.
+Các member ở đâu sẽ là các class, function, biến .
+  **Chú ý** : khi hai file main.cpp và test.cpp có cùng `namespace Test`  thì khi ta include"test.cpp" thì hai `namspace Test` sẽ là cùng một bộ nhớ và các member bên trong không được có tên trùng.
+
+**Cách tường minh:**
+- Tình huống:
+Khi đang lập trình trong một file A bạn include 2 file B và C, nhưng 2 file này có cùng định nghĩa một hàm function() giống nhau về tên và tham số truyền vào, nhưng xử lý của mỗi hàm ở mỗi file là khác nhau, vấn đề đặt ra là code làm sao để trình biên dịch hiểu được khi nào bạn muốn gọi function của file B, khi nào bạn muốn gọi function của file C. Khi gọi hàm function() ở file A, trình biên dịch sẽ không biết được hàm function() bạn muốn gọi là hàm được định nghĩa ở file B hay file C. Vì vậy trình biên dịch chương trình sẽ báo lỗi.
+**Định nghĩa:**
+- Namespace là từ khóa trong C++ được sử dụng để định nghĩa một phạm vi nhằm 
+mục đích phân biệt các hàm, lớp, biến, ... cùng tên trong các thư viện khác nhau.
 </details>
 
 <details> 
 <summary><h4>VIRTUAL FUNCTION</h4></summary>
+
+```c++
+
+#include<iostream>
+
+using namespace std;
+
+class DoiTuong{
+    public:
+        virtual char* cmd(){
+
+            return (char *)"Doi tuong";
+        }
+        void display(){
+
+            printf("%s", cmd());
+        }
+};
+
+class Sinhvien : public DoiTuong{
+    public:
+        char *cmd(){
+
+            return (char *)"Sinh vien";
+        }
+};
+
+int main(int argc, char const *argv[])
+{
+   DoiTuong dt;
+
+   dt.display();
+
+   printf("\n");
+
+   Sinhvien sv;
+
+   sv.display();
+    return 0;
+}
+
+```
+- Ta thấy trong class DoiTuong sẽ gồm hai method là cmd() và display(). Hàm cmd() là method sẽ trả về con trỏ kiểu char(địa chỉ) và string Doi tuong sẽ được ép kiểu thành con trỏ char. Hàm display() hiển thị string với %s: chuỗi.
+- Sau đó ta khởi tạo class Sinhvien kế thừa class Doi tuong theo kiểu public.
+Thì sẽ thừa hưởng các đặc tính của class Doituong ở phạm vi public.
+- Khi ta khai báo sv theo class Sinhvien và trỏ đến hàm display() ở class Doituong thì nó sẽ in ra "Doi tuong". Bởi vì do kế thừa class Doi Tuong nên sv có thể trỏ đến hàm display() ở class Doi tuong  và sẽ thục thi hàm cmd() ở class DoiTuong vậy nên nó dẽ in ra "Doi tuong".
+- Khi ta khai báo hàm cmd() với từ khoá `virtual` thì khi đó sv truy cập trỏ đến hàm display() ở class DoiTuong để thục hiện hàm cmd(). Từ khoá `virtual` giúp kiểm tra xem các ở subclass thì cmd() có bị ghi đè(overload) hay làm mới hay không thì nó sẽ cập nhật cmd() mới nhất. Nếu như hàm cmd() không bị ghi đè thì nó sẽ lấy cmd() ở class Doituong.
+- Dùng virtual function sẽ giúp cho ta kiểm tra xem ở subclass mà được kế thừa thì các method có bị ghi đè(override) hay định nghĩa lại không thì nó sẽ overload cập nhật mới nhất lại các method ở các sublass đó. Khi thiết kế chương trình nếu như mình muốn method nào overload thì ta sẽ dùng virtual để overload mới nhất ở các subclass được định nghĩa sau cùng.
 </details>
 
 <details> 
 <summary><h4>LINKED LIST</h4></summary>
+
+**Linked list** là một cấu trúc dữ liệu động, nó là một danh sách mà mỗi phần tử đều liên kết với phần tử đúng sau nó trong danh sách. Mỗi phần tử (được gọi là một node hay nút) trong danh sách liên kết đơn là một cấu trúc có hai thành phần:
+  - Thành phần dữ liệu: lưu thông tin về bản thân phần tử đó
+  - Thành phần liên kết: lưu địa chỉ phần tử đứng sau trong danh sách, nếu phần tử đó là phần tử cuối cùng thì thành phần này bằng NULL
+
+ <img src="https://i.imgur.com/H9jDvR0.jpg">
+
+
+  Do danh sách liên kết đơn là một cấu trúc dữ liệu động, được tạo nên nhờ việc cấp phát động nên nó mang một số đặc điểm sau đây:
+  - Được cấp phát bộ nhớ khi chạy chương trình
+  - Có thể đổi thay kích thước qua việc thêm, xóa phần tử
+  - Kích thước tối đa phụ thuộc vào bộ nhớ khả dụng của RAM
+  - Các phần tử được lưu trữ tự nhiên (không liên tiếp) trong RAM
+
+  Do tính liên kết của phần tử đầu và phần tử đứng sau nó trong danh sách liên kết đơn, nó có những đặc điểm sau:
+  - Chỉ cần nắm được phần tử đầu và cuối là có thể quản lý được danh sách
+  - Truy cập tới phần tử ngẫu nhiên phải duyệt từ đầu tới vị trí đó
+  - Chỉ có thể tìm kiếm tuyến tính một phần tử
+  
+**Note:**
+
+- Linked List thì nó sẽ khác so với vector về việc lưu trữa các Object. List sẽ lưu trữ các Object có địa chỉ khác nhau. Vậy nên để có thể truy xuất được từng giá trị của Object thì ta cần duyệt theo kiểu: tạo ra biến con trỏ theo kiểu dữ liệu `iterator`.
+- List cũng giống với vector thì cũng sẽ có các function: `push_back(), erase(), insert(), pop_back(), etc.`
+
+**Example:**
+
+```c++
+int main(int argc, char const *argv[])
+{
+    
+    list<int> array;
+    array.push_back(2);
+    array.push_back(5);
+    array.push_back(7);
+    array.push_back(4);
+
+    for (list<int> :: iterator it = array.begin(); it != array.end(); it++)
+    {
+        cout<<"i= "<<*it<<endl;
+    }
+
+     for( auto i : array){                      // Advance For
+
+        cout<<"i= "<<i<<endl;
+    }
+    
+    return 0;
+}
+
+```
+**Note**: 
+- list<int> :: iterator it là biến con trỏ khai báo theo kiểu `interator(kiểu dữ liệu để lưu địa chỉ)`.
+- array.begin(): địa chỉ đầu tiền của list.
+- array.end(): địa chỉ kế cuối của list.
+  
+  <img src="https://i.imgur.com/v6PiVrQ.jpg">
 </details>
 
 <details> 
 <summary><h4>MAP</h4></summary>
+
+ **Map** là một tập hợp các phần tử được sắp xếp theo thứ tự cụ thể, mà mỗi phần tử trong đó được hình thành bởi sự kết hợp của một cặp khóa và giá trị (key & value) với mỗi khóa là duy nhất trong map
+  - Các `key` được sử dụng để sắp xếp và xác định `value` tương ứng được liên kết với nó
+  - Mỗi `key` trong map là duy nhất và không được phép trùng lặp
+  - Các `value` trong map thì có thể trùng lặp, chúng có thể thay đổi giá trị, cũng như là được chèn hoặc xóa khỏi map
+  - Để sử dụng map bạn cần khai báo: `#include<map>`
+  - Syntax: `map <kiểu dữ liệu, kiểu dữ liệu> tên biến;`
+```c++
+  Trả về kích thước hiện tại của map: students.size();
+  Kiểm tra map có rỗng hoặc không: students.empty();     // trả về true nếu map rỗng, false nếu không rỗng
+  Truy cập phần tử trong map: students[x];               // truy cập value của khóa x
+  Chỉnh sửa phần tử trong map (phần tử chỉnh sửa phải ở dạng "cặp"): students.insert(x);
+  Xóa phần tử trong map: students.erase(x);
+  Xóa tất cả phần tử trong map: students.clear();
+```
+
+```c++
+#include<iostream>
+#include<map>
+#include<string>
+
+using namespace std;
+
+typedef struct 
+{
+    string name;
+    int age;
+}information;
+
+
+int main(int argc, char const *argv[])
+{
+    map<int, information> students;
+
+    students[100] = information{"Hoang", 20};  //  {"Hoang", 20};
+    students[101] = information{"Tuan", 21};  //  {"Tuan", 21};
+    students[105] = information{"Ha", 22};   //  {"Ha", 22};
+
+    for(auto item : students){              // dùng for cải tiến để truy xuất giá trị.
+
+        cout<<endl<<"ID = "<<item.first<<", Name: "<< item.second.name<<", age: "<<item.second.age<<endl;
+    }
+    return 0;
+}
+
+```
+- MAP sẽ bao gồm hai kiểu dữ liệu là int và information.
+- int là kiểu dữ liệu cho key, hay gọi là first.
+- information sẽ được gọi là second.
+- item.first cách để truy xuất vào key(first).
+- item.second.name truy xuất vào vào second(information) và truy cập vào struct có member là name.
+- item.second.age truy xuất vào vào second(kieu data: information) và truy cập vào struct có member là age.
 </details>
 
 <details> 
 <summary><h4>LAMDA</h4></summary>
+
+- LAMDA là function nhưng mà được viết function ở cục bộ thay vì khai báo ở toàn cục.
+- Cú pháp: `auto fun = [các biến cục bộ bên ngoài dùng trong hàm ](input parameters) -> kiểu trả về { các lệnh bên trong hàm lambda }`
+
+**Còn các biến toàn cục thì không cần ghi.**
+
+**Example 1:**
+  
+```c++
+#include<iostream>
+#include<stdint.h>
+
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+    uint8_t x = 2;
+    uint8_t y = 5;
+    auto fun =[=](int a, int b){
+
+        printf("Add of %d and %d: %d",a,b,a+b);
+        printf(" i = %d, %d", x, y);
+    };
+
+    fun(6,8);
+    return 0;
+}
+
+```
+**Note:** 
+- Hàm fun() được khai báo ở cục bộ trong main().
+- Sau đó ta gọi hàm fun() bên trong hàm main().
+- Khi muốn truy cập biến cục bộ x và y ở hàm fun(). Ta cần truyền thông số vào `auto fun = [=]() `và nếu truyền x thì `auto fun = [x]()`. Còn nếu khai báo biến toàn cục thì ta không cần truyền biến vào.
+
+**Example 2:**
+
+```c++
+
+list<int> array;
+
+sort(array.begin(), array.end(),[](int a, int b) ->return bool
+{
+    a < b;
+};)
+
+```
+**Note:** Cách dùng thử hai của của Lamda, và gọi hàm lamda ở cục bộ bên trong main.
+</details>
+
+<details> 
+<summary><h4>AUTOSAR C++ CODING GUIDELINES</h4></summary>
+
+#### Các quy tắc về đặt tên theo tiêu chuẩn “Autosar C++ Coding Guidelines”:
+
+Tiêu chuẩn "AUTOSAR C++14 Coding Guidelines" là một bộ quy tắc và hướng dẫn về cách viết mã nguồn C++ theo tiêu chuẩn Autosar. Tài liệu này đã được phát triển bởi Hiệp hội Autosar, một tổ chức quốc tế chuyên về nghiên cứu và phát triển hệ thống phần mềm trong lĩnh vực ô tô.
+
+Mục tiêu của tiêu chuẩn này là cung cấp một tập hợp các quy tắc và hướng dẫn cho các nhà phát triển phần mềm ô tô để đảm bảo tính nhất quán, dễ bảo trì và an toàn của mã nguồn. Tiêu chuẩn này đưa ra các quy tắc về kiến trúc, xử lý ngoại lệ, quản lý bộ nhớ, đặt tên biến, hằng số, hàm và lớp, kiểm tra lỗi trên biên, kiểm tra chế độ debug, và nhiều vấn đề khác liên quan đến mã nguồn C++.
+
+Với sự phát triển nhanh chóng của các công nghệ ô tô, việc đảm bảo tính an toàn của các phần mềm trong xe là một vấn đề cực kỳ quan trọng. Vì vậy, tiêu chuẩn AUTOSAR C++14 Coding Guidelines là một công cụ hữu ích giúp các nhà phát triển đảm bảo tính an toàn của mã nguồn phần mềm ô tô.
+
+#### Đặt tên biến và hằng số:
+
+- **Đặt tên biến**: Tên biến nên được đặt sao cho dễ hiểu, ngắn gọn và miêu tả rõ mục đích sử dụng.
+
+- **Đặt tên hằng số**: Tên hằng số nên được đặt sao cho dễ hiểu, ngắn gọn và miêu tả rõ mục đích sử dụng.
+
+  ```c++
+  #include <iostream>
+  #include <string>
+
+  // Đặt tên biến
+  int numberOfWheels = 4;
+  double speedLimit = 60.0;
+  bool isRunning = false;
+
+  // Đặt tên hằng số
+  const double kPi = 3.14159265358979323846;
+  const int kMaxSpeed = 100;
+  const double kGravity = 9.81;
+
+  int main() {
+    // Sử dụng biến và hằng số đã định nghĩa
+    std::cout << "This car has " << numberOfWheels << " wheels." << std::endl;
+    std::cout << "The speed limit is " << speedLimit << " km/h." << std::endl;
+    std::cout << "Is the car running? " << std::boolalpha << isRunning << std::endl;
+    std::cout << "The value of PI is " << kPi << std::endl;
+    std::cout << "The maximum speed is " << kMaxSpeed << " km/h." << std::endl;
+    std::cout << "The value of gravity is " << kGravity << " m/s^2." << std::endl;
+    return 0;
+  }
+  ```
+
+Trong ví dụ trên, chúng ta đã đặt tên các biến và hằng số sao cho dễ hiểu, ngắn gọn và miêu tả rõ mục đích sử dụng của chúng. Các tên biến và hằng số đều bắt đầu bằng chữ cái viết thường và các từ trong tên được phân cách bằng dấu gạch dưới. Ví dụ: "numberOfWheels", "kMaxSpeed", "kGravity".   
+
+Chú ý rằng trong tiêu chuẩn AUTOSAR C++ Coding Guidelines, việc đặt tên biến và hằng số nên tuân thủ một số quy tắc như sau:
+
+- Tên biến và hằng số nên bắt đầu bằng chữ cái viết thường.
+
+- Các từ trong tên biến và hằng số nên được phân cách bằng dấu gạch dưới.
+
+- Tên biến và hằng số không nên sử dụng những từ viết tắt khó hiểu hoặc không rõ nghĩa.
 </details>
 
 
