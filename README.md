@@ -1564,7 +1564,7 @@ int main() {
     cout << "Your age is: " << age << endl;
 }
 ```
-### Endl
+#### 4. Endl
 
 **endl** là một đối tượng được xác định trước của lớp ostream. Nó được sử dụng để chèn một ký tự xuống dòng.
 ```C
@@ -1599,7 +1599,7 @@ Access modifier là phạm vi truy cập của các thuộc tính và phương t
 
 #### 2. Cách truy cập vào các member của class:
 
-**EXAMPLE 1:** Kháo báo CLASS với các property
+**EXAMPLE 1:** Khai báo CLASS với các property
 
 ```c++
 #include<iostream>
