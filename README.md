@@ -2544,9 +2544,9 @@ int main(int argc, char const *argv[])
     }
 
 ```
-- push_back(): Hàm đẩy một phần tử vào vị trí sau cùng của vector. Nếu kiểu của đối tượng được truyền dưới dạng tham số trong push_back() không giống với kiểu của vector thì sẽ bị ném ra.
-- emplace_back(): Nó được sử dụng để chèn một phần tử mới vào vùng chứa vector, phần tử mới sẽ được thêm vào cuối vector.
-- emplace(): Nó mở rộng vùng chứa bằng cách chèn phần tử mới vào
+- ***push_back()***: Hàm đẩy một phần tử vào vị trí sau cùng của vector. Nếu kiểu của đối tượng được truyền dưới dạng tham số trong `push_back()` không giống với kiểu của vector thì sẽ bị ném ra.
+- ***emplace_back()***: Nó được sử dụng để chèn một phần tử mới vào vùng chứa vector, phần tử mới sẽ được thêm vào cuối vector.
+- ***emplace()***: Nó mở rộng vùng chứa bằng cách chèn phần tử mới vào
 
 ```c++
  vector<int> v = {1,7,4};
@@ -2554,9 +2554,9 @@ int main(int argc, char const *argv[])
     v.push_back(3);
     v.emplace_back(7);
 ```
-- assign(): Nó gán một giá trị mới cho các phần tử vector bằng cách thay thế các giá trị cũ.
-- pop_back(): Hàm pop_back () được sử dụng để xóa đi phần tử cuối cùng một vector.
-- clear(): Hàm được sử dụng để loại bỏ tất cả các phần tử của vùng chứa vector.
+- ***assign()***: Nó gán một giá trị mới cho các phần tử vector bằng cách thay thế các giá trị cũ.
+- ***pop_back()***: Hàm `pop_back()` được sử dụng để xóa đi phần tử cuối cùng một vector.
+- ***clear()***: Hàm được sử dụng để loại bỏ tất cả các phần tử của vùng chứa vector.
 ```c++
 vector<int> v = {1,7,4};
 
@@ -2578,7 +2578,7 @@ vector<int> v = {1,7,4};
         cout << num << " "; // Output: 2 3 4
     }
 ```
--  swap(): Hàm được sử dụng để hoán đổi nội dung của một vector này với một 
+-  ***swap()***: Hàm được sử dụng để hoán đổi nội dung của một vector này với một 
 vector khác cùng kiểu. Kích thước có thể khác nhau.
 
 ```c++
@@ -2594,7 +2594,7 @@ vector<int> v = {1,7,4};
 
     v.insert(v.begin() + 1 ,7);
 ```
--  erase(): Hàm được sử dụng để xóa các phần tử tùy theo vị trí vùng chứa.
+-  ***erase()***: Hàm được sử dụng để xóa các phần tử tùy theo vị trí vùng chứa.
 ```c++
  vector<int> v = {1,7,4};
 
