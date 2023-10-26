@@ -1,5 +1,0 @@
-SPI
-I2C
-UART
-TIMER
-NGẮT
